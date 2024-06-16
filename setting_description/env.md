@@ -28,7 +28,6 @@
     "node": "20"
   },
 ```
-<!-- - When a user try to execute commands in the project with another node version, Your command won't be executed with below error messages -->
 - When a user tries to execute commands in the project with another node version, the command won't be executed and the following error messages will appear:
 
 ![alt text](<images/env/2.node version lock.png>)
