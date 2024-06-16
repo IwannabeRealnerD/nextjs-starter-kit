@@ -11,6 +11,7 @@
     "pnpm": "9"
   },
 ```
+
 - When a user tries to execute commands in the project with another pnpm version, the command won't be executed and the following error messages will appear:
 
 ![alt text](<images/env/1.pnpm version lock.png>)
@@ -28,6 +29,15 @@
     "node": "20"
   },
 ```
+
 - When a user tries to execute commands in the project with another node version, the command won't be executed and the following error messages will appear:
 
 ![alt text](<images/env/2.node version lock.png>)
+
+# 3. nvm file
+
+- If a user uses nvm, they can manage the Node.js version easily with the `.nvmrc` file.
+
+```bash
+nvm use
+```
