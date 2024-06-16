@@ -1,6 +1,4 @@
-## setting descripion
-
-### 1. pnpm version locking
+### 1. pnpm version lock
 
 ```json
 {
@@ -16,5 +14,5 @@
 
 - If you want to lock pnpm version on your project, you can add those lines.
 - When you try to execute commands in the project with another pnpm version, Your command won't be executed with below error messages
-  ![alt text](image.png)
 
+![alt text](<setting_description/images/1.pnpm version lock.png>)
