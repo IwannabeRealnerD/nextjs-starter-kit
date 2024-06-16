@@ -42,7 +42,7 @@
 
 1. Clone repository
    ```sh
-   git clone https://github.com/IwannabeRealnerD/khanne-sh.git
+   git clone https://github.com/IwannabeRealnerD/next-starter-kit.git
    ```
 2. Install pnpm dependency
    ```sh
@@ -58,6 +58,9 @@
 - [ ] Implement e2e test (playwright)
 - [ ] Eslint
 - [ ] Enhance README (e.g., how to add commands, etc.)
+- [ ] Typescript Test
+- [ ] Development DOC
+- [ ] Storybook
 
 ## Contact
 
