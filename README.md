@@ -1,12 +1,12 @@
 <div align="center">
-  <a href="https://github.com/IwannabeRealnerD/khanne-sh">
+  <!-- <a href="https://github.com/IwannabeRealnerD/nextjs-starter-kit">
     <img src="images/original_favicon.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h2 align="center">nextjs-starter-kit</h2>
 
   <p align="center">
-    Starter kit for nextjs(pages/app direcotry) with necessary utils(query manipulator, type-safe storage manipulatore etc)
+    Starter kit for Next.js with useful utilities, libraries, linting, etc.
     <br />
     <a href="https://github.com/IwannabeRealnerD/nextjs-starter-kit/issues">Report Bug</a>
     ·
@@ -14,17 +14,14 @@
   </p>
 </div>
 
-## Environment Requirements
-
-- node
-- pnpm
-<!-- -Veniam duis elit occaecat anim in ut irure excepteur ipsum voluptate exercitation non dolor. - about project
-
 <div align="center">
-  <img src="https://img.shields.io/badge/svelte-FF3200?style=for-the-badge&logo=svelte&logoColor=white">
-  <img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white">
-  <img src="https://img.shields.io/badge/vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white">
-</div> -->
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next.js&logoColor=white">
+  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+</div>
+
+## Explanation about implemented features
+
+- [env](setting_description/env.md)
 
 ## Getting started in your local environment
 
@@ -33,10 +30,11 @@
 ### Environment Setup
 
 - nodejs - 20.10.0
-- pnpm - 9.13.0
+- pnpm - 9.3.0
   ```sh
   corepack prepare pnpm@9.13.0 --activate
   ```
+  - If your pnpm is activated by corepack, it'll automatically use the specified version.
 
 ### How to Deploy Dev Server
 
@@ -57,7 +55,7 @@
 
 - [ ] Implement e2e test (playwright)
 - [ ] Eslint
-- [ ] Enhance README (e.g., how to add commands, etc.)
+- [ ] Enhance README
 - [ ] Typescript Test
 - [ ] Development DOC
 - [ ] Storybook
