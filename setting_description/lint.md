@@ -37,7 +37,7 @@ pnpm lint
 
 ![alt text](<images/lint/1. numerous errors.png>)
 
-## 2. prettier
+#2. prettier
 
 - Prettier is added to the project to ensure consistent code formatting. By integrating Prettier with ESLint, we can automatically fix code style issues.
 - eslint-config-prettier is added to avoid conflicts between ESLint rules and Prettier's formatting rules.
@@ -59,3 +59,24 @@ pnpm add -D eslint-config-prettier prettier
   "printWidth": 120
 }
 ```
+
+#3. cspell
+
+- cspell will help users to catch common spelling errors in their code.
+
+```bash
+pnpm add -D @cspell/eslint-plugin
+```
+
+- In `cspell.json`, add the following configuration to customize the spell checker. For example, The word "motorrad" is added because it's a correct word for this project but cspell does not recognize it.
+
+```json
+//cspell.json
+{
+  "version": "0.1",
+  "language": "en",
+  "words": ["khanne", "montag", "motorrad"]
+}
+```
+
+> **Note for VS Code users:** If the rule is changed, it's recommended to restart the ESLint server.

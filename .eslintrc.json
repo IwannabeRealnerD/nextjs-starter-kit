@@ -1,8 +1,10 @@
 {
+  "plugins": ["@cspell"],
   "extends": ["next/core-web-vitals", "airbnb", "prettier"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "@cspell/spellchecker": ["error", {}]
   },
   "overrides": [{ "files": "src/pages/_app.tsx", "rules": { "react/jsx-props-no-spreading": "off" } }]
 }
