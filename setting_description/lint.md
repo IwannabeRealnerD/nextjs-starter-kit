@@ -1,5 +1,7 @@
 # 1. eslint-config-airbnb
 
+- It's easier to start with the Airbnb ESLint configuration than to start everything from scratch. Users can personalize their code rules from this configuration.
+
 ## 1-1. eslint-config-airbnb's peer dependency
 
 ```bash
@@ -34,3 +36,26 @@ pnpm lint
 - Next, run the `pnpm lint` command to verify the implementation. Don't be concerned about the numerous errors; this is expected.
 
 ![alt text](<images/lint/1. numerous errors.png>)
+
+## 2. prettier
+
+- Prettier is added to the project to ensure consistent code formatting. By integrating Prettier with ESLint, we can automatically fix code style issues.
+- eslint-config-prettier is added to avoid conflicts between ESLint rules and Prettier's formatting rules.
+
+```bash
+pnpm add -D eslint-config-prettier prettier
+```
+
+- And create .prettierrc file and add below lines - Users can customize formatting style
+
+```json
+// .prettierrc
+{
+  "semi": true,
+  "trailingComma": "es5",
+  "singleQuote": false,
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 120
+}
+```

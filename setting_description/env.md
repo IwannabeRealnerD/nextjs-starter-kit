@@ -22,12 +22,12 @@
 ```bash
 corepack use pnpm@latest
 ```
+
 ```json
   "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f"
 ```
+
 - For users who activated pnpm with [corepack](https://nodejs.org/api/corepack.html), this command will make it easier to switch between projects with different pnpm versions. The designated pnpm version will be automatically activated.
-
-
 
 # 2. node version lock
 

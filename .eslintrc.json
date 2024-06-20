@@ -1,3 +1,8 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb"]
+  "extends": ["next/core-web-vitals", "airbnb", "prettier"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }]
+  },
+  "overrides": [{ "files": "src/pages/_app.tsx", "rules": { "react/jsx-props-no-spreading": "off" } }]
 }
