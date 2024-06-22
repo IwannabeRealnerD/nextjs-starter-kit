@@ -17,6 +17,17 @@
     "@cspell/spellchecker": ["error", {}],
     "@typescript-eslint/consistent-type-definitions": "off",
     "no-unused-vars": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["type", "builtin", "external", ["index", "sibling", "parent", "internal"], "object"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
     "prettier/prettier": [
       "error",
       {},
