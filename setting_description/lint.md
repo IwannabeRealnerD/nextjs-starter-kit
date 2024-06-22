@@ -68,25 +68,85 @@ pnpm lint
 #3. prettier
 
 - Prettier is added to the project to ensure consistent code formatting. By integrating Prettier with ESLint, we can automatically fix code style issues.
-- eslint-config-prettier is added to avoid conflicts between ESLint rules and Prettier's formatting rules.
 
 ```bash
-pnpm add -D eslint-config-prettier prettier
+pnpm add -D eslint-config-prettier eslint-plugin-prettier
 ```
 
-- And create .prettierrc file and add below lines - Users can customize formatting style
+### 3-1. eslint-plugin-prettier
+
+- In order to fix lint errors with the pnpm lint --fix command (or the format function in VS Code), prettier was not added. Instead, `eslint-plugin-prettier` was added to deal with code style issues with fixable lint errors.
+- With the following settings, users can configure Prettier rules in the .eslintrc.json file.
 
 ```json
-// .prettierrc
+// .eslintrc.json
 {
-  "semi": true,
-  "trailingComma": "es5",
-  "singleQuote": false,
-  "tabWidth": 2,
-  "useTabs": false,
-  "printWidth": 120
+  "extends": [
+    // ...omitted
+    "plugin:prettier/recommended",
+    // ...omitted
+  ],
+```
+
+- To avoid confusion, a `.prettierrc` file is still used. With the following code, users can configure Prettier settings with `.prettierrc` file.
+
+```json
+// .eslintrc.json
+"rules": {
+  "prettier/prettier": [
+    "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
+  }
 }
 ```
+
+### 3-2. eslint-config-prettier
+
+- `eslint-config-prettier` is added to avoid conflicts between ESLint rules and Prettier's formatting rules.
+- In order to override other eslint rules, `prettier` is added to at the end of extends property.
+
+```json
+// .eslintrc.json
+  "extends": [
+    // ...omitted
+    // "prettier" should be the last element of the array
+    "prettier"
+  ],
+```
+
+### 3-3. .vscode
+
+- In order to use ESLint as a formatter in VS Code, Following code is added to the `.vscode/settings.json` file.
+
+```json
+//.vscode/settings.json
+{
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}
+```
+
+### 3-4. vscode eslint setting
+
+- In order to use ESLint as a formatter in VS Code, User needs to enable "ESLint > Format:Enable" in VS Code settings.
+  ![alt text](<images/lint/2. vscode enable ESLint as a formatter.png>)
 
 #4. cspell
 

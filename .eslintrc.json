@@ -1,7 +1,9 @@
 {
-  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
+    "plugin:prettier/recommended",
+    // "plugin:jsonc/recommended-with-jsonc",
+
     // "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/strict",
     "plugin:@typescript-eslint/stylistic",
@@ -9,12 +11,34 @@
     "airbnb",
     "prettier"
   ],
-  "plugins": ["@cspell"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@cspell", "sort-keys-fix"],
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
     "@cspell/spellchecker": ["error", {}],
-    "@typescript-eslint/consistent-type-definitions": "off"
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "no-unused-vars": "off",
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "sort-keys-fix/sort-keys-fix": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true
+      }
+    ]
   },
-  "overrides": [{ "files": "src/pages/_app.tsx", "rules": { "react/jsx-props-no-spreading": "off" } }]
+  "overrides": [
+    {
+      "files": "src/pages/_app.tsx",
+      "rules": { "react/jsx-props-no-spreading": "off" }
+    }
+  ]
 }

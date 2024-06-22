@@ -1,5 +1,9 @@
 {
-  "version": "0.1",
   "language": "en",
-  "words": ["khanne", "montag", "motorrad"]
+  "version": "0.1",
+  "words": [
+    "khanne",
+    "montag",
+    "motorrad"
+  ]
 }
