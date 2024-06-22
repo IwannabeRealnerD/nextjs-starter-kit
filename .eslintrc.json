@@ -1,10 +1,20 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    // "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/strict",
+    "plugin:@typescript-eslint/stylistic",
+    "next/core-web-vitals",
+    "airbnb",
+    "prettier"
+  ],
   "plugins": ["@cspell"],
-  "extends": ["next/core-web-vitals", "airbnb", "prettier"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
-    "@cspell/spellchecker": ["error", {}]
+    "@cspell/spellchecker": ["error", {}],
+    "@typescript-eslint/consistent-type-definitions": "off"
   },
   "overrides": [{ "files": "src/pages/_app.tsx", "rules": { "react/jsx-props-no-spreading": "off" } }]
 }

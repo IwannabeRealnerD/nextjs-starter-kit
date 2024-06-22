@@ -1,8 +1,36 @@
-# 1. eslint-config-airbnb
+# 1. typescript-eslint
+
+- `@typescript-eslint/parser` is essential for enabling ESLint to parse TypeScript code, allowing for effective linting and ensuring code quality in TypeScript projects.
+- `@typescript-eslint/eslint-plugin` is crucial for providing TypeScript-specific linting rules, enhancing code quality and consistency in TypeScript projects.
+
+```bash
+pnpm add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+- Add below lines to `.eslintrc.json`
+- `recommended`, `strict`, or `stylistic` configurations can be chosen based on the project's needs.
+- While `recommended` is the most basic configuration, `strict` has more stringent rules, such as enforcing consistent return types and requiring explicit accessibility modifiers.
+- `stylistic` focuses on enforcing consistent code style and formatting rules, such as indentation, spacing, and naming conventions.
+
+```json
+// .eslintrc.json
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    // ...omitted
+    // "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/strict",
+    "plugin:@typescript-eslint/stylistic"
+    // ...omitted
+  ]
+}
+```
+
+# 2. eslint-config-airbnb
 
 - It's easier to start with the Airbnb ESLint configuration than to start everything from scratch. Users can personalize their code rules from this configuration.
 
-## 1-1. eslint-config-airbnb's peer dependency
+## 2-1. eslint-config-airbnb's peer dependency
 
 ```bash
 npx install-peerdeps --dev eslint-config-airbnb
@@ -37,7 +65,7 @@ pnpm lint
 
 ![alt text](<images/lint/1. numerous errors.png>)
 
-#2. prettier
+#3. prettier
 
 - Prettier is added to the project to ensure consistent code formatting. By integrating Prettier with ESLint, we can automatically fix code style issues.
 - eslint-config-prettier is added to avoid conflicts between ESLint rules and Prettier's formatting rules.
@@ -60,7 +88,7 @@ pnpm add -D eslint-config-prettier prettier
 }
 ```
 
-#3. cspell
+#4. cspell
 
 - cspell will help users to catch common spelling errors in their code.
 
