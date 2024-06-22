@@ -2,6 +2,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
+    "plugin:import/recommended",
     // "plugin:jsonc/recommended-with-jsonc",
 
     // "plugin:@typescript-eslint/recommended",
@@ -37,6 +38,17 @@
     ],
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
     "react/react-in-jsx-scope": "off",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "shorthandLast": false,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
+      }
+    ],
     "sort-keys-fix/sort-keys-fix": [
       "error",
       "asc",
