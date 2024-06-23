@@ -6,7 +6,7 @@
   <h2 align="center">nextjs-starter-kit</h2>
 
   <p align="center">
-    Starter kit for Next.js with useful utilities, libraries, linting, etc.
+    Starter kit for Next.js with useful utilities, libraries, lint/format settings, etc.
     <br />
     <a href="https://github.com/IwannabeRealnerD/nextjs-starter-kit/issues">Report Bug</a>
     ·
@@ -19,12 +19,17 @@
   <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 </div>
 
+> `nextjs-starter-kit` is a starter kit for Next.js applications. It provides essential tools, libraries, and configurations to help you quickly set up and develop your Next.js projects.
+
+## Before You Begin
+
+- This project uses complex and strict linting rules. Please read [this document](setting_description/Linting_and_Formating.md) carefully to avoid potential issues or conflicts with personal preferences.
+
 ## Explanation about implemented features
 
 - [Environment](setting_description/Environment.md)
-- [Linting_and_Formatting](setting_description/Linting and Formating.md)
-  - This project uses complex and strict linting rules. Please read this document carefully to avoid potential issues or conflicts with personal preferences.
-  
+- [Linting and Formatting](setting_description/Linting_and_Formating.md)
+
 ## Getting started in your local environment
 
 - To get started with this project, you need to clone the reapository and install the dependency.
