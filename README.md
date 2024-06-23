@@ -23,7 +23,8 @@
 
 - [Environment](setting_description/Environment.md)
 - [Linting_and_Formatting](setting_description/Linting and Formating.md)
-
+  - This project uses complex and strict linting rules. Please read this document carefully to avoid potential issues or conflicts with personal preferences.
+  
 ## Getting started in your local environment
 
 - To get started with this project, you need to clone the reapository and install the dependency.
