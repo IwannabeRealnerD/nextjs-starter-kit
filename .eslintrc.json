@@ -1,3 +1,66 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    // "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/strict",
+    "airbnb",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": "src/pages/_app.tsx",
+      "rules": { "react/jsx-props-no-spreading": "off" }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
+  "rules": {
+    "@cspell/spellchecker": ["error", {}],
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": ["type", "builtin", "external", ["index", "sibling", "parent", "internal"], "object"],
+        "newlines-between": "always"
+      }
+    ],
+    "no-console": "warn",
+    "no-unused-vars": "off",
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true,
+        "shorthandFirst": true,
+        "shorthandLast": false
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "sort-keys-fix/sort-keys-fix": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true
+      }
+    ],
+    "unicorn/no-empty-file": "error"
+  }
 }
