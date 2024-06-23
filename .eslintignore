@@ -1,4 +1,4 @@
-.eslintrc.json 
+!.eslintrc.json 
 tsconfig.json
 node_modules
 .next

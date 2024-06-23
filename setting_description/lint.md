@@ -138,7 +138,8 @@ pnpm add -D eslint-config-prettier eslint-plugin-prettier
     "editor.formatOnSave": true
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
   }
 }
 ```
