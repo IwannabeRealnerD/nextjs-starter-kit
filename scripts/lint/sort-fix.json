@@ -1,0 +1,15 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["sort-keys-fix"],
+  "root": true,
+  "rules": {
+    "sort-keys-fix/sort-keys-fix": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true
+      }
+    ]
+  }
+}

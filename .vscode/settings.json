@@ -1,4 +1,5 @@
 {
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc", "json5"],
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
@@ -12,8 +13,9 @@
     "editor.formatOnSave": true
   },
   "[json]": {
-    // "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+    // "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[svg]": {
     "editor.formatOnSave": false,
