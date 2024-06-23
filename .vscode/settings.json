@@ -1,8 +1,17 @@
 {
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc", "json5"],
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
+  },
+  "[json]": {
+    // "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[svg]": {
+    "editor.formatOnSave": false,
+    "files.insertFinalNewline": false
   },
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
@@ -12,13 +21,5 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
-  "[json]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": true
-    // "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[svg]": {
-    "editor.formatOnSave": false,
-    "files.insertFinalNewline": false
-  }
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

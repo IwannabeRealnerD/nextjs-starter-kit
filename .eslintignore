@@ -1,5 +1,7 @@
-!.eslintrc.json 
-tsconfig.json
+# .eslintrc.json 
+# !*.json
+# !.*.json
+# tsconfig.json
 node_modules
 .next
 pnpm-lock.yaml

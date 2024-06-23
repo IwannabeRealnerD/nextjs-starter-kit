@@ -22,6 +22,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^54.0.0",
+    "prettier-plugin-sort-json": "^4.0.0",
     "typescript": "^5"
   },
   "engines": {

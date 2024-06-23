@@ -13,16 +13,10 @@
     {
       "files": "src/pages/_app.tsx",
       "rules": { "react/jsx-props-no-spreading": "off" }
-    },
-    {
-      "files": ["**/.*.json", "**/.*.json5", "**/*.json", "**/*.json5"],
-      "rules": {
-        "no-unused-expressions": "off"
-      }
     }
   ],
-  "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
   "parser": "@typescript-eslint/parser",
+  "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
   "rules": {
     "@cspell/spellchecker": ["error", {}],
     "@typescript-eslint/consistent-type-definitions": "off",

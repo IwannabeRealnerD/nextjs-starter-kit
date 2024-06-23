@@ -15,14 +15,14 @@ pnpm add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```json
 // .eslintrc.json
 {
-  "parser": "@typescript-eslint/parser",
   "extends": [
     // ...omitted
     // "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/strict",
     "plugin:@typescript-eslint/stylistic"
     // ...omitted
-  ]
+  ],
+  "parser": "@typescript-eslint/parser"
 }
 ```
 
@@ -129,6 +129,10 @@ pnpm add -D eslint-config-prettier eslint-plugin-prettier
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
@@ -136,13 +140,33 @@ pnpm add -D eslint-config-prettier eslint-plugin-prettier
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
-  },
-  "[json]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": true
   }
 }
 ```
+
+- .js, .ts, .tsx files will be formatted with eslint, but json files will be formatted with prettier. This is because linting json files with eslint requires more settings and is not reliable.
+- In 3-1, `eslint-plugin-prettier` is added to handle code style issues with fixable lint errors. Additionally, a `.prettierrc` file is used to configure Prettier settings. There is no need to worry about different formatting settings.
+
+### 3.4 prettier-plugin-sort-json
+
+- prettier-plugin-sort-json is added to sort json files.
+- This could be done with `eslint-plugin-sort-keys-fix`, but it requires a lot of additional code and settings as described above.
+
+```bash
+pnpm add -D prettier-plugin-sort-json
+```
+
+- By default, `prettier-plugin-sort-json` will sort only top-level keys. Setting `jsonRecursiveSort` to true will sort all keys at all levels.
+
+```json
+// .prettierrc.json
+{
+  "jsonRecursiveSort": true,
+  "plugins": ["prettier-plugin-sort-json"]
+}
+```
+
+- Note that this will not sort `package.json`, `package-lock.json`, or `composer.json`. This plugin only affects the JSON parser used by Prettier. Prettier uses a different parser (`json-stringify`) for these specific files.
 
 ### 3-4. vscode eslint setting
 
@@ -162,8 +186,8 @@ pnpm add -D @cspell/eslint-plugin
 ```json
 //cspell.json
 {
-  "version": "0.1",
   "language": "en",
+  "version": "0.1",
   "words": ["khanne", "montag", "motorrad"]
 }
 ```
