@@ -59,6 +59,7 @@
 - [ ] Typescript Test
 - [ ] Development DOC
 - [ ] Storybook
+- [ ] Different lint for git hooks - stricter
 
 ## Contact
 
