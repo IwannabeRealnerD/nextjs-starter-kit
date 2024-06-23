@@ -1,17 +1,4 @@
 {
-  "name": "nextjs-starter-kit",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "pnpm": "9",
-    "node": "20"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
   "dependencies": {
     "next": "14.2.4",
     "react": "^18",
@@ -35,7 +22,23 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-unicorn": "^54.0.0",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f"
+  "engines": {
+    "node": "20",
+    "pnpm": "9"
+  },
+  "name": "nextjs-starter-kit",
+  "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "sort-eslint": "eslint --fix --config scripts/lint/.sort-fix.json --no-eslintrc .eslintrc.json",
+    "sort-package": "eslint --fix --config scripts/lint/.sort-fix.json --no-eslintrc package.json",
+    "start": "next start"
+  },
+  "version": "0.1.0"
 }

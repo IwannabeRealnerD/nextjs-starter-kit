@@ -2,7 +2,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:import/recommended",
     // "plugin:jsonc/recommended-with-jsonc",
 
     // "plugin:@typescript-eslint/recommended",
@@ -12,23 +11,29 @@
     "airbnb",
     "prettier"
   ],
+  "overrides": [
+    {
+      "files": "src/pages/_app.tsx",
+      "rules": { "react/jsx-props-no-spreading": "off" }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@cspell", "sort-keys-fix"],
+  "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
   "rules": {
     "@cspell/spellchecker": ["error", {}],
     "@typescript-eslint/consistent-type-definitions": "off",
-    "no-unused-vars": "off",
     "import/order": [
       "error",
       {
-        "groups": ["type", "builtin", "external", ["index", "sibling", "parent", "internal"], "object"],
-        "newlines-between": "always",
         "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": ["type", "builtin", "external", ["index", "sibling", "parent", "internal"], "object"],
+        "newlines-between": "always"
       }
     ],
+    "no-unused-vars": "off",
     "prettier/prettier": [
       "error",
       {},
@@ -37,18 +42,18 @@
       }
     ],
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
-    "react/react-in-jsx-scope": "off",
     "react/jsx-sort-props": [
       "error",
       {
         "callbacksLast": true,
-        "shorthandFirst": true,
-        "shorthandLast": false,
         "ignoreCase": true,
         "noSortAlphabetically": false,
-        "reservedFirst": true
+        "reservedFirst": true,
+        "shorthandFirst": true,
+        "shorthandLast": false
       }
     ],
+    "react/react-in-jsx-scope": "off",
     "sort-keys-fix/sort-keys-fix": [
       "error",
       "asc",
@@ -56,12 +61,7 @@
         "caseSensitive": true,
         "natural": true
       }
-    ]
-  },
-  "overrides": [
-    {
-      "files": "src/pages/_app.tsx",
-      "rules": { "react/jsx-props-no-spreading": "off" }
-    }
-  ]
+    ],
+    "unicorn/no-empty-file": "error"
+  }
 }
