@@ -1,4 +1,8 @@
-# 1. pnpm version lock
+# Environment
+
+- This document provides a setting guide for the development environment. It includes instructions on locking specific versions of pnpm and Node.js, using corepack for version management, and utilizing nvm for Node.js version control.
+
+## 1. pnpm version lock
 
 ```json
 // package.json
@@ -17,7 +21,7 @@
 
 ![alt text](<images/env/1.pnpm version lock.png>)
 
-## 1-1. for corepack users
+### 1-1. for corepack users
 
 ```bash
 corepack use pnpm@latest
@@ -29,7 +33,7 @@ corepack use pnpm@latest
 
 - For users who activated pnpm with [corepack](https://nodejs.org/api/corepack.html), this command will make it easier to switch between projects with different pnpm versions. The designated pnpm version will be automatically activated.
 
-# 2. node version lock
+## 2. node version lock
 
 ```json
 // package.json
@@ -48,7 +52,7 @@ corepack use pnpm@latest
 
 ![alt text](<images/env/2.node version lock.png>)
 
-# 3. nvm file
+## 3. nvm file
 
 - If a user uses nvm, they can manage the Node.js version easily with the `.nvmrc` file.
 

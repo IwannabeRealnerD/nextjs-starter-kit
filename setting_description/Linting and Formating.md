@@ -1,4 +1,8 @@
-# 1. typescript-eslint
+# Linting and Formatting Setup Guide
+
+- This document provides a comprehensive guide to setting up linting and formatting tools for a NextJS project. The following sections cover the installation and configuration of various tools to ensure code quality and consistency.
+
+## 1. typescript-eslint
 
 - `@typescript-eslint/parser` is essential for enabling ESLint to parse TypeScript code, allowing for effective linting and ensuring code quality in TypeScript projects.
 - `@typescript-eslint/eslint-plugin` is crucial for providing TypeScript-specific linting rules, enhancing code quality and consistency in TypeScript projects.
@@ -7,7 +11,6 @@
 pnpm add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
-- Add below lines to `.eslintrc.json`
 - `recommended`, `strict`, or `stylistic` configurations can be chosen based on the project's needs.
 - While `recommended` is the most basic configuration, `strict` has more stringent rules, such as enforcing consistent return types and requiring explicit accessibility modifiers.
 - `stylistic` focuses on enforcing consistent code style and formatting rules, such as indentation, spacing, and naming conventions.
@@ -26,11 +29,11 @@ pnpm add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
 }
 ```
 
-# 2. eslint-config-airbnb
+## 2. eslint-config-airbnb
 
 - It's easier to start with the Airbnb ESLint configuration than to start everything from scratch. Users can personalize their code rules from this configuration.
 
-## 2-1. eslint-config-airbnb's peer dependency
+### 2-1. eslint-config-airbnb's peer dependency
 
 ```bash
 npx install-peerdeps --dev eslint-config-airbnb
@@ -46,7 +49,7 @@ pnpm add -D eslint-config-airbnb@19.0.4 eslint@^8.2.0 eslint-plugin-react@^7.28.
 
 - Install all peer dependencies in order implment eslint-config-airbnb
 
-## 1-2. apply eslint-config-airbnb
+### 1-2. apply eslint-config-airbnb
 
 ```json
 //eslintrc.json
@@ -65,7 +68,7 @@ pnpm lint
 
 ![alt text](<images/lint/1. numerous errors.png>)
 
-#3. prettier
+## 3. prettier
 
 - Prettier is added to the project to ensure consistent code formatting. By integrating Prettier with ESLint, we can automatically fix code style issues.
 
@@ -168,12 +171,12 @@ pnpm add -D prettier-plugin-sort-json
 
 - Note that this will not sort `package.json`, `package-lock.json`, or `composer.json`. This plugin only affects the JSON parser used by Prettier. Prettier uses a different parser (`json-stringify`) for these specific files.
 
-### 3-4. vscode eslint setting
+### 3-5. vscode eslint setting
 
 - In order to use ESLint as a formatter in VS Code, User needs to enable "ESLint > Format:Enable" in VS Code settings.
   ![alt text](<images/lint/2. vscode enable ESLint as a formatter.png>)
 
-#4. cspell
+## 4. cspell
 
 - cspell will help users to catch common spelling errors in their code.
 

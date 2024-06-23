@@ -21,7 +21,8 @@
 
 ## Explanation about implemented features
 
-- [env](setting_description/env.md)
+- [Environment](setting_description/Environment.md)
+- [Linting_and_Formatting](setting_description/Linting and Formating.md)
 
 ## Getting started in your local environment
 
