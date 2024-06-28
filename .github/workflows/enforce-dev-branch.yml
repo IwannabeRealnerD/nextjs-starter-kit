@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: Check branch
         run: |
+          if [[ "${{ github.event.pull_request.base.ref }}" != "main" ]]; then
+            echo "This is not main branch"
+            exit 0
+          fi
           if [[ "${{ github.head_ref }}" != "dev" ]]; then
             echo "Error: Pull requests to main must come from the dev branch"
             exit 1
