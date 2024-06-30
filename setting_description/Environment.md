@@ -59,3 +59,39 @@ corepack use pnpm@latest
 ```bash
 nvm use
 ```
+
+## 4. husky, lint-staged
+
+- Husky is a package that helps us to manage git hooks easily.
+- Lint-staged is a package that allows us to run linters only on staged files, enhancing the performance of commit file linting and type checking.
+
+```bash
+pnpm add -D husky lint-staged
+pnpm dlx husky-init
+
+pnpm dlx husky-init # init husky
+```
+
+```bash
+# .husky/pre-commit
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm lint-staged
+```
+
+- The `lint-staged` configuration is in the `package.json` file.
+- In Next.js, the default linter is next lint. However, since we are using lint-staged, we need to modify the configuration because next lint is not compatible with lint-staged. This incompatibility arises because next lint expects all files to be linted, while lint-staged only lints staged files, leading to errors as it skips linting the pages and app directories.
+- When using lint-staged with TypeScript, only the staged files are processed, which results in tsconfig.json being ignored.
+- Due to the limitations described above, `eslint --fix` is used instead of `next lint`. For type checking that respects `tsconfig.json`, the command `bash -c tsc --noEmit --pretty` is utilized.
+
+```json
+// package.json
+{
+  // ...omitted
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": ["eslint --fix", "bash -c tsc --noEmit --pretty"]
+  }
+  // ...omitted
+}
+```

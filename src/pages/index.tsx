@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,6 +9,11 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const test = 3;
+
+  const test2 = "3";
+  const hi = test2 + test;
+  const test1g: any = 3;
   return (
     <>
       <Head>

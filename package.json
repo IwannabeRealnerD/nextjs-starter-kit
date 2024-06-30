@@ -22,6 +22,8 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^54.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.7",
     "prettier-plugin-sort-json": "^4.0.0",
     "typescript": "^5"
   },
@@ -32,13 +34,21 @@
   "name": "nextjs-starter-kit",
   "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f",
   "private": true,
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "bash -c tsc --noEmit --pretty"
+    ]
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "pwd": "pwd",
     "lint": "next lint",
     "sort-eslint": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!.eslintrc.json' .eslintrc.json",
     "sort-package": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!package.json' package.json",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky install"
   },
   "version": "0.1.0"
 }
