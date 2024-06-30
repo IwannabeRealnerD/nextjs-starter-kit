@@ -36,7 +36,8 @@
   "private": true,
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "tsc --noEmit"
     ]
   },
   "scripts": {
@@ -46,7 +47,8 @@
     "sort-eslint": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!.eslintrc.json' .eslintrc.json",
     "sort-package": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!package.json' package.json",
     "start": "next start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "type-check": "tsc --noEmit"
   },
   "version": "0.1.0"
 }
