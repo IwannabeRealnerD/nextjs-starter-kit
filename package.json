@@ -37,18 +37,18 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
-      "tsc --noEmit"
+      "bash -c tsc --noEmit --pretty"
     ]
   },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "pwd": "pwd",
     "lint": "next lint",
     "sort-eslint": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!.eslintrc.json' .eslintrc.json",
     "sort-package": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!package.json' package.json",
     "start": "next start",
-    "prepare": "husky install",
-    "type-check": "tsc --noEmit"
+    "prepare": "husky install"
   },
   "version": "0.1.0"
 }
