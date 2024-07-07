@@ -214,3 +214,4 @@ pnpm add -D eslint-plugin-boundaries
 - For project-wide shared items, the naming convention requires them to start with “Global” (PascalCase or camelCase) to ensure consistency and easy identification from code base.
 - No need to download anything cos it's from `@typescript-eslint`.
 - There is no need to download anything additional, as it is included with @typescript-eslint.
+

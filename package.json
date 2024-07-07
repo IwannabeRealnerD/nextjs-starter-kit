@@ -42,7 +42,7 @@
   "private": true,
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+      "eslint --fix -c lint-rules/commit-rule.json",
       "bash -c tsc --noEmit --pretty"
     ]
   },
