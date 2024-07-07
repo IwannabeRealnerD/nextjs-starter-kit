@@ -95,3 +95,25 @@ pnpm lint-staged
   // ...omitted
 }
 ```
+
+### 4-1. husky specific lint rule
+
+- Using console.log for debugging is common in programming. However, it should not be present in the final codebase as it is not part of the business logic. Excessive use of console.log can result in an overloaded console with irrelevant information during development.
+- The same applies to unused variables, which can clutter the code and lead to potential confusion or errors.
+- Such items should not be merged into the codebase. However, during product development, they are commonly used for debugging and are not as critical as other lint rule errors. If ESLint flags these as “errors” in the codebase, it can be challenging to identify the real issues.
+- Therefore, these are marked as warnings in VSCode but as errors in Husky (githook). This setting is a matter of personal preference and can be adjusted by users accordingly.
+- The code snippet below demonstrates how to mark these issues as warnings in VSCode and as errors during the commit check process.
+
+```json
+// package.json
+{
+  // ...omitted
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix -c lint-rules/commit-rule.json", // changed line
+      "bash -c tsc --noEmit --pretty"
+    ]
+  }
+  // ...omitted
+}
+```
