@@ -20,6 +20,16 @@
   "rules": {
     "@cspell/spellchecker": ["error", {}],
     "@typescript-eslint/consistent-type-definitions": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "import/order": [
       "error",
       {
@@ -27,10 +37,12 @@
           "caseInsensitive": true,
           "order": "asc"
         },
-        "groups": ["type", "builtin", "external", ["index", "sibling", "parent", "internal"], "object"],
+        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
+
         "newlines-between": "always"
       }
     ],
+    "import/prefer-default-export": "off",
     "no-console": "warn",
     "no-unused-vars": "off",
     "prettier/prettier": [
