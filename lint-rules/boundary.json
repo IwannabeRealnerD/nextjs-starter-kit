@@ -56,7 +56,7 @@
       { "pattern": "src/types", "type": "types" },
       { "pattern": "src/utils", "type": "utils" },
       { "pattern": "src/pages", "type": "pages" },
-      { "pattern": "src/styles", "type": "pages" }
+      { "pattern": "src/styles", "type": "styles" }
     ]
   }
 }
