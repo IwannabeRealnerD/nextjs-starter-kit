@@ -29,6 +29,7 @@
     "lint-staged": "^15.2.7",
     "prettier-plugin-sort-json": "^4.0.0",
     "typescript": "^5",
+    "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0"
   },
   "engines": {
@@ -39,7 +40,7 @@
   "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f",
   "private": true,
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "bash -c tsc --noEmit --pretty"
     ]
@@ -55,5 +56,6 @@
     "start": "next start",
     "prepare": "husky install"
   },
+  "type": "module",
   "version": "0.1.0"
 }
