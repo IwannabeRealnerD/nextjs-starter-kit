@@ -6,11 +6,13 @@
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.9.0",
+    "@testing-library/react": "^16.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
+    "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-next": "14.2.4",
@@ -23,9 +25,11 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^54.0.0",
     "husky": "^8.0.0",
+    "jsdom": "^24.1.0",
     "lint-staged": "^15.2.7",
     "prettier-plugin-sort-json": "^4.0.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^1.6.0"
   },
   "engines": {
     "node": "20",
@@ -45,6 +49,7 @@
     "dev": "next dev",
     "pwd": "pwd",
     "lint": "next lint",
+    "test": "vitest",
     "sort-eslint": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!.eslintrc.json' .eslintrc.json",
     "sort-package": "eslint --fix --config scripts/lint/sort-fix.json --no-eslintrc --ignore-pattern '!package.json' package.json",
     "start": "next start",

@@ -20,6 +20,7 @@
   "rules": {
     "@cspell/spellchecker": ["error", {}],
     "@typescript-eslint/consistent-type-definitions": "off",
+    "import/no-extraneous-dependencies": "off",
     "import/order": [
       "error",
       {
