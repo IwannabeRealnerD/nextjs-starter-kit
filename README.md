@@ -67,6 +67,7 @@
 - [ ] Development DOC
 - [ ] Storybook
 - [ ] Different lint for git hooks - stricter
+- [ ] Eslint new format
 
 ## Contact
 

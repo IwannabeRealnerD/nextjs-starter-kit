@@ -1,0 +1,62 @@
+{
+  "plugins": ["boundaries"],
+  "rules": {
+    "boundaries/element-types": [
+      "error",
+      {
+        "default": "allow",
+        "rules": [
+          {
+            "disallow": ["pages"],
+            "from": "apis"
+          },
+          {
+            "disallow": ["pages"],
+            "from": "hooks"
+          },
+          {
+            "disallow": ["pages"],
+            "from": "types"
+          },
+          {
+            "disallow": ["pages"],
+            "from": "utils"
+          },
+          {
+            "disallow": ["pages"],
+            "from": "constants"
+          },
+          {
+            "disallow": ["pages"],
+            "from": "components"
+          },
+          {
+            "disallow": ["pages"],
+            "from": "styles"
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "boundaries/elements": [
+      {
+        "pattern": "src/apis",
+        "type": "apis"
+      },
+      {
+        "pattern": "src/hooks",
+        "type": "hooks"
+      },
+      {
+        "pattern": "src/components",
+        "type": "components"
+      },
+      { "pattern": "src/constants", "type": "constants" },
+      { "pattern": "src/types", "type": "types" },
+      { "pattern": "src/utils", "type": "utils" },
+      { "pattern": "src/pages", "type": "pages" },
+      { "pattern": "src/styles", "type": "pages" }
+    ]
+  }
+}
