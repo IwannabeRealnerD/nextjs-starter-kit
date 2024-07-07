@@ -196,3 +196,21 @@ pnpm add -D @cspell/eslint-plugin
 ```
 
 > **Note for VS Code users:** If the rule is changed, it's recommended to restart the ESLint server.
+
+## 5. eslint-plugin-boundaries
+
+- The eslint-plugin-boundaries is added to enforce project boundaries, such as preventing imports from child directories.
+- To improve readability and maintainability, the configuration has been moved from .eslintrc.json to lint-rules/boundary.json.
+- To maintain modular boundaries and ensure a clear separation of concerns, the project-wide shared directory (e.g., src/constants, src/types, etc.) is restricted from importing items from the pages directory.
+
+```bash
+pnpm add -D eslint-plugin-boundaries
+```
+
+## 6. @typescript-eslint/naming-convention
+
+- @typescript-eslint/naming-convention is added to enforce naming conventions.
+- To improve readability and maintainability, the configuration has been moved from .eslintrc.json to lint-rules/naming-convention.json.
+- For project-wide shared items, the naming convention requires them to start with “Global” (PascalCase or camelCase) to ensure consistency and easy identification from code base.
+- No need to download anything cos it's from `@typescript-eslint`.
+- There is no need to download anything additional, as it is included with @typescript-eslint.
