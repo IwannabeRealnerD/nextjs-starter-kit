@@ -1,6 +1,6 @@
 # Linting and Formatting Setup Guide
 
-- This document provides a comprehensive guide to setting up linting and formatting tools for a NextJS project. The following sections cover the installation and configuration of various tools to ensure code quality and consistency.
+- This document contains information related to the linting and formating of the project, including the reasons for selecting libraries, configuration methods, and more.
 
 ## 1. typescript-eslint
 
@@ -33,7 +33,7 @@ pnpm add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
 
 - It's easier to start with the Airbnb ESLint configuration than to start everything from scratch. Users can personalize their code rules from this configuration.
 
-### 2-1. eslint-config-airbnb's peer dependency
+### 2-1. eslint-config-airbnb's Peer Dependency
 
 ```bash
 npx install-peerdeps --dev eslint-config-airbnb
@@ -49,7 +49,7 @@ pnpm add -D eslint-config-airbnb@19.0.4 eslint@^8.2.0 eslint-plugin-react@^7.28.
 
 - Install all peer dependencies in order implment eslint-config-airbnb
 
-### 1-2. apply eslint-config-airbnb
+### 1-2. Apply eslint-config-airbnb
 
 ```json
 //eslintrc.json
@@ -171,7 +171,7 @@ pnpm add -D prettier-plugin-sort-json
 
 - Note that this will not sort `package.json`, `package-lock.json`, or `composer.json`. This plugin only affects the JSON parser used by Prettier. Prettier uses a different parser (`json-stringify`) for these specific files.
 
-### 3-5. vscode eslint setting
+### 3-5. vscode eslint Setting
 
 - In order to use ESLint as a formatter in VS Code, User needs to enable "ESLint > Format:Enable" in VS Code settings.
   ![alt text](<images/lint/2. vscode enable ESLint as a formatter.png>)

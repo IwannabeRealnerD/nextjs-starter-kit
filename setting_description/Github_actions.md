@@ -1,6 +1,6 @@
-# Github actions
+# Github Actions
 
-- This document serves as a comprehensive guide to implementing generic GitHub Actions within this project.
+- This document contains information related to the github actions of the project, including the reasons for selecting libraries, configuration methods, and more.
 
 ## 1. enforce-dev-branch.yml
 
