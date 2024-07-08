@@ -1,6 +1,6 @@
 # Linting and Formatting Setup Guide
 
-- This document provides a comprehensive guide to setting up linting and formatting tools for a NextJS project. The following sections cover the installation and configuration of various tools to ensure code quality and consistency.
+- This document contains information related to the linting and formating of the project, including the reasons for selecting libraries, configuration methods, and more.
 
 ## 1. typescript-eslint
 

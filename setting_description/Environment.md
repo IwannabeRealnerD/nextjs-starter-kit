@@ -1,8 +1,8 @@
 # Environment
 
-- This document provides a setting guide for the development environment. It includes instructions on locking specific versions of pnpm and Node.js, using corepack for version management, and utilizing nvm for Node.js version control.
+- This document contains information related to the environment(such as pnpm, Node, nvm etc.) of the project, including the reasons for selecting libraries, configuration methods, and more.
 
-## 1. lock pnpm version
+## 1. Lock PNPM Version
 
 ```json
 // package.json
@@ -21,7 +21,7 @@
 
 ![alt text](<images/env/1.pnpm version lock.png>)
 
-### 1-1. for corepack users
+### 1-1. For Corepack Users
 
 ```bash
 corepack use pnpm@latest
@@ -33,7 +33,7 @@ corepack use pnpm@latest
 
 - For users who activated pnpm with [corepack](https://nodejs.org/api/corepack.html), this command will make it easier to switch between projects with different pnpm versions. The designated pnpm version will be automatically activated.
 
-## 2. lock node version
+## 2. Lock Node Version
 
 ```json
 // package.json
@@ -52,7 +52,7 @@ corepack use pnpm@latest
 
 ![alt text](<images/env/2.node version lock.png>)
 
-## 3. nvm file
+## 3. nvm
 
 - If a user uses nvm, they can manage the Node.js version easily with the `.nvmrc` file.
 
@@ -60,7 +60,7 @@ corepack use pnpm@latest
 nvm use
 ```
 
-## 4. husky, lint-staged
+## 4. Husky, Lint-Staged
 
 - Husky is a package that helps us to manage git hooks easily.
 - Lint-staged is a package that allows us to run linters only on staged files, enhancing the performance of commit file linting and type checking.
@@ -96,7 +96,7 @@ pnpm lint-staged
 }
 ```
 
-### 4-1. husky specific lint rule
+### 4-1. Husky Specific Lint Rule
 
 - Using console.log for debugging is common in programming. However, it should not be present in the final codebase as it is not part of the business logic. Excessive use of console.log can result in an overloaded console with irrelevant information during development.
 - The same applies to unused variables, which can clutter the code and lead to potential confusion or errors.

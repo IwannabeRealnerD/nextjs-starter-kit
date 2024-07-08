@@ -1,6 +1,6 @@
 # Test
 
-- This document provides a comprehensive guide to setting up test(unit, component, e2e) for a NextJS project. The following sections cover the installation and configuration of various tools to ensure code quality and consistency.
+- This document contains information related to the testing of the project, including the reasons for selecting libraries, configuration methods, and more.
 
 ## 1. vitest
 
