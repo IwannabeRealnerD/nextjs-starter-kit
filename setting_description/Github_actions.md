@@ -1,4 +1,4 @@
-# Github actions
+# Github Actions
 
 - This document contains information related to the github actions of the project, including the reasons for selecting libraries, configuration methods, and more.
 
