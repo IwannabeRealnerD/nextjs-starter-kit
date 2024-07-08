@@ -96,7 +96,7 @@ pnpm lint-staged
 }
 ```
 
-### 4-1. husky specific lint rule
+### 4-1. husky-specific lint rule
 
 - Using console.log for debugging is common in programming. However, it should not be present in the final codebase as it is not part of the business logic. Excessive use of console.log can result in an overloaded console with irrelevant information during development.
 - The same applies to unused variables, which can clutter the code and lead to potential confusion or errors.
