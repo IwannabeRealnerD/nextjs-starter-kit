@@ -31,6 +31,7 @@
 - [linting and formatting](setting_description/linting_and_formatting.md)
 - [github actions](setting_description/github_actions.md)
 - [test](setting_description/test.md)
+- [libraries](setting_description/libraries.md)
 
 ## Getting started in your local environment
 
