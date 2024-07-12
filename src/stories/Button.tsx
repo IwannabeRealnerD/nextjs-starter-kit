@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./button.css";
+import { globalOmit } from "@/utils/globalOmit";
 
 export interface ButtonProps {
   /**
@@ -27,15 +29,24 @@ export interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary = false, size = "medium", backgroundColor, label, ...props }: ButtonProps) => {
-  const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
+
+// { primary = false, size = "medium", backgroundColor, label, ...props }: ButtonProps
+export const Button = (props: ButtonProps) => {
+  const omittedProps = globalOmit(props, "primary", "size", "backgroundColor", "label");
+
+  const mode = props.primary ? "storybook-button--primary" : "storybook-button--secondary";
+
   return (
-    <button className={["storybook-button", `storybook-button--${size}`, mode].join(" ")} type="button" {...props}>
-      {label}
+    <button
+      className={["storybook-button", `storybook-button--${props.size}`, mode].join(" ")}
+      type="button"
+      {...omittedProps}
+    >
+      {props.label}
       {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         button {
-          background-color: ${backgroundColor};
+          background-color: ${props.backgroundColor};
         }
       `}</style>
     </button>

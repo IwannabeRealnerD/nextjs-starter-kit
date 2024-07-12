@@ -47,7 +47,18 @@
       }
     ],
     "import/prefer-default-export": "off",
-
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "importNames": ["it"],
+            "message": "Please use \"test\" instead of \"it\" from vitest.",
+            "name": "vitest"
+          }
+        ]
+      }
+    ],
     "no-restricted-syntax": [
       "error",
       {
@@ -67,6 +78,7 @@
         "usePrettierrc": true
       }
     ],
+    "react/destructuring-assignment": ["error", "never"],
     "react/function-component-definition": [
       "error",
       {
