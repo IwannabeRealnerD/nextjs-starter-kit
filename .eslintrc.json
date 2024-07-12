@@ -48,6 +48,17 @@
     ],
     "import/prefer-default-export": "off",
 
+    "no-restricted-syntax": [
+      "error",
+      {
+        "message": "Destructuring props is not allowed.",
+        "selector": "VariableDeclarator[id.type='ObjectPattern'][init.name='props']"
+      },
+      {
+        "message": "Destructuring props is not allowed.",
+        "selector": "AssignmentPattern[left.type='ObjectPattern'][right.name='props']"
+      }
+    ],
     "no-unused-vars": "off",
     "prettier/prettier": [
       "error",
@@ -56,8 +67,15 @@
         "usePrettierrc": true
       }
     ],
-
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-sort-props": [
       "error",
       {
@@ -70,6 +88,7 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
     "sort-keys-fix/sort-keys-fix": [
       "error",
       "asc",
