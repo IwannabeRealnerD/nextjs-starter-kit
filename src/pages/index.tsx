@@ -1,5 +1,5 @@
 import * as style from "./index.css";
 
-export default function Home() {
+export default () => {
   return <h2 className={style.heading}>Index Page</h2>;
-}
+};

@@ -23,6 +23,7 @@
     "@cspell/spellchecker": ["error", {}],
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-unused-vars": "warn",
+    "arrow-body-style": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -47,7 +48,18 @@
       }
     ],
     "import/prefer-default-export": "off",
-
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "importNames": ["it"],
+            "message": "Please use \"test\" instead of \"it\" from vitest.",
+            "name": "vitest"
+          }
+        ]
+      }
+    ],
     "no-restricted-syntax": [
       "error",
       {
@@ -67,6 +79,7 @@
         "usePrettierrc": true
       }
     ],
+    "react/destructuring-assignment": ["error", "never"],
     "react/function-component-definition": [
       "error",
       {
