@@ -30,7 +30,6 @@ export interface ButtonProps {
  * Primary UI component for user interaction
  */
 
-// { primary = false, size = "medium", backgroundColor, label, ...props }: ButtonProps
 export const Button = (props: ButtonProps) => {
   const omittedProps = globalOmit(props, "primary", "size", "backgroundColor", "label");
 
@@ -52,3 +51,8 @@ export const Button = (props: ButtonProps) => {
     </button>
   );
 };
+
+Button.defaultProps = {
+  primary: false,
+  size: "medium",
+} as ButtonProps;
