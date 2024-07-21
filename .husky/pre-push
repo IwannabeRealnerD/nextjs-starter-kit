@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+output=$(script -q /dev/null pnpm lint)
+line_count=$(echo "$output" | wc -l)
+
+echo "$output"
+echo
+
+if [ "$line_count" -gt 6 ]; then
+  echo "\033[31mLinting failed or there are warnings. Please add and commit your code, then push again.\033[0m"
+  exit 1
+  
+else
+  echo "\033[32mLinting passed with no warnings or errors.\033[0m"
+fi

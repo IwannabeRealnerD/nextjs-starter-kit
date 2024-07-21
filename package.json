@@ -18,7 +18,7 @@
     "@storybook/react": "^8.2.2",
     "@storybook/test": "^8.2.2",
     "@testing-library/react": "^16.0.0",
-    "@types/node": "^20",
+    "@types/node": "20.14.11",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
@@ -51,15 +51,15 @@
     "node": "20",
     "pnpm": "9"
   },
-  "name": "nextjs-starter-kit",
-  "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f",
-  "private": true,
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
       "eslint --fix -c lint-rules/commit-rule.json",
       "bash -c tsc --noEmit --pretty"
     ]
   },
+  "name": "nextjs-starter-kit",
+  "packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f",
+  "private": true,
   "scripts": {
     "analyze": "ANALYZE=true pnpm build",
     "build": "next build",
