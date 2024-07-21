@@ -4,7 +4,6 @@
 output=$(script -q /dev/null pnpm lint)
 line_count=$(echo "$output" | wc -l)
 
-echo "line_count: $line_count"
 echo "$output"
 echo
 
