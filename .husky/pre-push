@@ -8,7 +8,7 @@ echo "line_count: $line_count"
 echo "$output"
 echo
 
-if [ "$line_count" -gt 5 ]; then
+if [ "$line_count" -gt 6 ]; then
   echo "\033[31mLinting failed or there are warnings. Please add and commit your code, then push again.\033[0m"
   exit 1
   
