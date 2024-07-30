@@ -215,3 +215,17 @@ pnpm add -D eslint-plugin-boundaries
 - No need to download anything cos it's from `@typescript-eslint`.
 - There is no need to download anything additional, as it is included with @typescript-eslint.
 
+## 7. Configuring lint command with options
+
+- ESLint can be customized with various options to achieve certain goals.
+
+### 7.1 -c, --config
+
+- Use an additional configuration file for the lint command, which overrides the existing .eslintrc.\* files if there are conflicting options.
+- By default, the lint command uses the .eslintrc.\* files in the current directory. If not found, it searches in the parent directories.
+- In this project, this option was used to lint in pre-commit and pre-push hooks with additional rules.
+
+### 7.2 --no-eslintrc
+
+- Prevents the command from using the .eslintrc.\* files in the current directory.
+- Using the -c option, ESLint can be configured with additional rules without being affected by the .eslintrc.\* files in the current directory.
