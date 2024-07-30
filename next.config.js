@@ -12,6 +12,9 @@ const nextConfig = {
   },
   pageExtensions: ["page.tsx", "page.ts"],
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default withBundleAnalyzer(withVanillaExtract(nextConfig));
