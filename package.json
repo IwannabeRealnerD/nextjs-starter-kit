@@ -53,7 +53,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix -c lint-rules/commit-rule.json",
+      "eslint --fix -c lint-rules/commit-push.json",
       "bash -c tsc --noEmit --pretty"
     ]
   },

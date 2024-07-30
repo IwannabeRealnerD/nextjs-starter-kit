@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-output=$(script -q /dev/null pnpm lint)
+output=$(script -q /dev/null pnpm lint -c lint-rules/commit-push.json)
 line_count=$(echo "$output" | wc -l)
 
 echo "$output"
