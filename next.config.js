@@ -13,7 +13,7 @@ const nextConfig = {
   pageExtensions: ["page.tsx", "page.ts"],
   reactStrictMode: true,
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreDuringBuilds: true,
   },
 };
 
