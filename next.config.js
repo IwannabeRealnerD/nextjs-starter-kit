@@ -6,6 +6,15 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === "tr
 const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
-const nextConfig = { pageExtensions: ["page.tsx", "page.ts"], reactStrictMode: true };
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  pageExtensions: ["page.tsx", "page.ts"],
+  reactStrictMode: true,
+  typescript: {
+    ignoreDuringBuilds: true,
+  },
+};
 
 export default withBundleAnalyzer(withVanillaExtract(nextConfig));

@@ -19,7 +19,7 @@
   <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 </div>
 
-> `nextjs-starter-kit` is a starter kit for Next.js applications. It provides essential tools, libraries, and configurations to help you quickly set up and develop your Next.js projects.
+> `nextjs-starter-kit` is a starter kit for Next.js applications. It provides essential tools, libraries, and configurations to help users quickly set up and develop their Next.js projects.
 
 ## Before You Begin
 
@@ -32,6 +32,7 @@
 - [github actions](setting_description/github_actions.md)
 - [test](setting_description/test.md)
 - [libraries](setting_description/libraries.md)
+- [build](setting_description/build.md)
 
 ## Getting started in your local environment
 
@@ -64,13 +65,8 @@
 ## Upcoming features
 
 - [ ] Implement e2e test (playwright)
-- [ ] Eslint
-- [ ] Enhance README
-- [ ] Typescript Test
-- [ ] Development DOC
-- [ ] Storybook
-- [ ] Different lint for git hooks - stricter
 - [ ] Eslint new format
+- [ ] make create-next-start command
 
 ## Contact
 
