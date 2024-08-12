@@ -47,6 +47,8 @@ jobs:
           echo "Changed files: $CHANGED_FILES"
           echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
           echo "##[endgroup]"
+          outputs:
+          CHANGED_FILES: $CHANGED_FILES
 
       - name: Add labels based on changed files
         env:
