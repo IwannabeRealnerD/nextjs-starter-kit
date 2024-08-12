@@ -1,6 +1,15 @@
 pages:
-  - "src/pages/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/pages/**
+    # - "src/pages/**"
 constants:
-  - "src/constants/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/constants/**
+    # - "src/constants/**"
 CI:
-  - ".github/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+    # - ".github/**"
