@@ -21,7 +21,11 @@ jobs:
         id: changed-files
         run: |
           echo "##[group] Determining changed files"
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+          BASE_SHA=${{ github.event.pull_request.base.sha }}
+          HEAD_SHA=${{ github.sha }}
+          echo "Base SHA: $BASE_SHA"
+          echo "Head SHA: $HEAD_SHA"
+          CHANGED_FILES=$(git diff --name-only $BASE_SHA $HEAD_SHA)
           echo "Changed files: $CHANGED_FILES"
           echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
           echo "##[endgroup]"
@@ -39,7 +43,6 @@ jobs:
           if echo "$CHANGED_FILES" | grep -q '^.github'; then
             LABELS="${LABELS}CI,"  
           fi
-
           echo "Labels to apply: $LABELS"
 
           # Add labels to the PR
