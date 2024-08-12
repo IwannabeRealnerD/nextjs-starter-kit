@@ -54,5 +54,5 @@ jobs:
 
       - name: Add new labels
         run: |
-          gh pr edit ${{ github.event.pull_request.number }} --label "$LABELS"
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
 
