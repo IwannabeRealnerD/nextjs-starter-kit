@@ -1,5 +1,22 @@
 # name: PR Labeling
 
+# on:
+#   pull_request:
+#     types: [opened, synchronize]
+
+# jobs:
+#   labeler:
+#     permissions:
+#       contents: read
+#       pull-requests: write
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/labeler@v5
+#         with:
+#           sync-labels: true
+name: PR Labeling
+
 on:
   pull_request:
     types: [opened, synchronize]
@@ -48,6 +65,3 @@ jobs:
 
           # Add labels to the PR
           gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
