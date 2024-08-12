@@ -1,22 +1,5 @@
 # name: PR Labeling
 
-# on:
-#   pull_request:
-#     types: [opened, synchronize]
-
-# jobs:
-#   labeler:
-#     permissions:
-#       contents: read
-#       pull-requests: write
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/labeler@v5
-#         with:
-#           sync-labels: true
-name: PR Labeling
-
 on:
   pull_request:
     types: [opened, synchronize]
@@ -49,9 +32,9 @@ jobs:
           echo "##[endgroup]"
 
       - name: Add labels based on changed files
+        env:
+          CHANGED_FILES: ${{ env.CHANGED_FILES }}
         run: |
-          CHANGED_FILES=$(echo $CHANGED_FILES)
-
           if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
             LABELS="${LABELS}pages,"
           fi
