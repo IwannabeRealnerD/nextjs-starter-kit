@@ -33,7 +33,8 @@ jobs:
         run: |
           CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.fileNames }})
           LABELS=""
-          
+          test=""
+
           if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
             LABELS="${LABELS}pages,"
           fi
