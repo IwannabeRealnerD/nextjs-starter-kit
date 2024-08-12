@@ -27,23 +27,23 @@ jobs:
           echo "Head Branch: $HEAD_BRANCH"
           test="$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)"
           echo "Changed files: $test"
-          echo "fileNames=$test" >> $GITHUB_OUTPUT
+      #     echo "fileNames=$test" >> $GITHUB_OUTPUT
 
-      - name: Add labels based on changed files
-        run: |
-          CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.fileNames }})
-          test=""
+      # - name: Add labels based on changed files
+      #   run: |
+      #     CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.fileNames }})
+      #     test=""
 
-          if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
-            LABELS="${LABELS}pages,"
-          fi
-          if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
-            LABELS="${LABELS}constants,"
-          fi
-          if echo "$CHANGED_FILES" | grep -q '^.github'; then
-            LABELS="${LABELS}CI,"  
-          fi
-          echo "Labels to apply: $LABELS"
+      #     if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
+      #       LABELS="${LABELS}pages,"
+      #     fi
+      #     if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
+      #       LABELS="${LABELS}constants,"
+      #     fi
+      #     if echo "$CHANGED_FILES" | grep -q '^.github'; then
+      #       LABELS="${LABELS}CI,"  
+      #     fi
+      #     echo "Labels to apply: $LABELS"
 
-          # Add labels to the PR
-          gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
+      #     # Add labels to the PR
+      #     gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
