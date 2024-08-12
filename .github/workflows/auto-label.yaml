@@ -5,17 +5,13 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  label-pr:
+  labeler:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Pull Request Labeler
-        uses: actions/labeler@v2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/labeler@v5
 # name: PR Labeling
 
 # on:
