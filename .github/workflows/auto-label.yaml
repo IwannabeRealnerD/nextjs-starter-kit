@@ -1,0 +1,51 @@
+name: PR Labeling
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  label-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Get changed files
+        id: changed-files
+        run: |
+          echo "##[group] Determining changed files"
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+          echo "Changed files: $CHANGED_FILES"
+          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+          echo "##[endgroup]"
+
+      - name: Add labels based on changed files
+        run: |
+          CHANGED_FILES=$(echo $CHANGED_FILES)
+
+          if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
+            LABELS="${LABELS}pages,"
+          fi
+          if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
+            LABELS="${LABELS}constants,"
+          fi
+          if [ -z "$LABELS" ]; then
+            LABELS="General"
+          else
+            LABELS="${LABELS%?}"  
+          fi
+
+          echo "Labels to apply: $LABELS"
+
+          # Add labels to the PR
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
