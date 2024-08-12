@@ -48,6 +48,3 @@ jobs:
 
           # Add labels to the PR
           gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
