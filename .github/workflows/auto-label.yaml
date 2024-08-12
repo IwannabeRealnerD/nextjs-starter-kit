@@ -29,23 +29,3 @@ jobs:
           CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
           echo "Changed files: $CHANGED_FILES"
           echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
-
-      - name: Add labels based on changed files
-        run: |
-          CHANGED_FILES=$(echo $CHANGED_FILES)
-          LABELS=""
-
-          if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
-            LABELS="${LABELS}pages,"
-          fi
-          if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
-            LABELS="${LABELS}constants,"
-          fi
-          if echo "$CHANGED_FILES" | grep -q '^.github'; then
-            LABELS="${LABELS}CI,"  
-          fi
-          LABELS=$(echo $LABELS | sed 's/,$//')  # Remove trailing comma
-          echo "Labels to apply: $LABELS"
-
-          # Add labels to the PR
-          gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
