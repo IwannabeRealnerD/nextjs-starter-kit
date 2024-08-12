@@ -40,29 +40,7 @@ jobs:
             LABELS="${LABELS}CI,"  
           fi
           LABELS=$(echo "$LABELS" | sed 's/,$//')
-
           echo "Labels to apply: $LABELS"
 
           # Add labels to the PR
           gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
-
-      #     echo "fileNames=$test" >> $GITHUB_OUTPUT
-
-      # - name: Add labels based on changed files
-      #   run: |
-      #     CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.fileNames }})
-      #     test=""
-
-      #     if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
-      #       LABELS="${LABELS}pages,"
-      #     fi
-      #     if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
-      #       LABELS="${LABELS}constants,"
-      #     fi
-      #     if echo "$CHANGED_FILES" | grep -q '^.github'; then
-      #       LABELS="${LABELS}CI,"
-      #     fi
-      #     echo "Labels to apply: $LABELS"
-
-      #     # Add labels to the PR
-      #     gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
