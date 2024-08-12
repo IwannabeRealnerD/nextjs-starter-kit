@@ -26,8 +26,6 @@ jobs:
         run: |
           BASE_BRANCH=${{ github.event.pull_request.base.ref }}
           HEAD_BRANCH=${{ github.head_ref }}
-          echo "Base Branch: $BASE_BRANCH"
-          echo "Head Branch: $HEAD_BRANCH"
           test="$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)"
 
           if echo "$test" | grep -q '^src/pages'; then
