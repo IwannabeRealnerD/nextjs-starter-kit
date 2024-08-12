@@ -5,6 +5,7 @@ export default () => {
     <Html lang="en">
       <Head />
       <body>
+        {/* pages? */}
         <Main />
         <NextScript />
       </body>
