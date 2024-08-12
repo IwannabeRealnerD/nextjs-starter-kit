@@ -39,10 +39,14 @@ jobs:
           fi
           LABELS=$(echo "$LABELS" | sed 's/,$//')
 
+          echo "::set-output name=labels::$LABELS"
+
+      - name: Apply labels
+        run: |
           PR_NUMBER=${{ github.event.pull_request.number }}
           EXISTING_LABELS=$(gh pr view $PR_NUMBER --json labels --jq '.labels | map(.name) | join(",")')
           if [ -n "$EXISTING_LABELS" ]; then
             gh pr edit $PR_NUMBER --remove-label "$EXISTING_LABELS"
           fi
 
-          gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "${{ steps.changed-files.outputs.labels }}"
