@@ -11,7 +11,14 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-        
+
+      - name: Fetch base branch
+        run: |
+          BASE_BRANCH=${{ github.event.pull_request.base.ref }}
+          git fetch origin $BASE_BRANCH:$BASE_BRANCH
+
+
+
       - name: Get changed files
         id: changed-files
         run: |
