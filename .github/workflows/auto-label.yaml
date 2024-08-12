@@ -42,5 +42,8 @@ jobs:
           LABELS=$(echo "$LABELS" | sed 's/,$//')
           echo "Labels to apply: $LABELS"
 
+          gh pr edit ${{ github.event.pull_request.number }} --remove-label "$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels | .[].name' | tr '\n' ',')"
+
+
           # Add labels to the PR
-          gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
+          gh pr edit ${{ github.event.pull_request.number }} --label "$LABELS"
