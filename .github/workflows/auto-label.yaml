@@ -38,6 +38,8 @@ jobs:
           if echo "$test" | grep -q '^.github'; then
             LABELS="${LABELS}CI,"  
           fi
+          LABELS=$(echo "$LABELS" | sed 's/,$//')
+
           echo "Labels to apply: $LABELS"
 
           # Add labels to the PR
@@ -57,7 +59,7 @@ jobs:
       #       LABELS="${LABELS}constants,"
       #     fi
       #     if echo "$CHANGED_FILES" | grep -q '^.github'; then
-      #       LABELS="${LABELS}CI,"  
+      #       LABELS="${LABELS}CI,"
       #     fi
       #     echo "Labels to apply: $LABELS"
 
