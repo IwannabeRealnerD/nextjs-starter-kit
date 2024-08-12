@@ -1,0 +1,6 @@
+pages:
+  - "src/pages/**"
+constants:
+  - "src/constants/**"
+CI:
+  - ".github/**"

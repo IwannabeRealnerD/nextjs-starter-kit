@@ -12,42 +12,60 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Fetch base branch
-        run: |
-          BASE_BRANCH=${{ github.event.pull_request.base.ref }}
-          git fetch origin $BASE_BRANCH:$BASE_BRANCH
-          HEAD_BRANCH=${{ github.head_ref }}
-          git fetch origin $HEAD_BRANCH:$HEAD_BRANCH
+      - name: Pull Request Labeler
+        uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+# name: PR Labeling
 
-      - name: Get changed files
-        id: changed-files
-        run: |
-          BASE_BRANCH=${{ github.event.pull_request.base.ref }}
-          HEAD_BRANCH=${{ github.head_ref }}
-          echo "Base Branch: $BASE_BRANCH"
-          echo "Head Branch: $HEAD_BRANCH"
-          CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
-          echo "Changed files: $CHANGED_FILES"
-          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
-          echo "##[endgroup]"
+# on:
+#   pull_request:
+#     types: [opened, synchronize]
 
-      - name: Add labels based on changed files
-        run: |
-          CHANGED_FILES=$(echo $CHANGED_FILES)
+# jobs:
+#   label-pr:
+#     runs-on: ubuntu-latest
 
-          if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
-            LABELS="${LABELS}pages,"
-          fi
-          if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
-            LABELS="${LABELS}constants,"
-          fi
-          if echo "$CHANGED_FILES" | grep -q '^.github'; then
-            LABELS="${LABELS}CI,"  
-          fi
-          echo "Labels to apply: $LABELS"
+#     steps:
+#       - name: Check out repository
+#         uses: actions/checkout@v4
 
-          # Add labels to the PR
-          gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
+#       - name: Fetch base branch
+#         run: |
+#           BASE_BRANCH=${{ github.event.pull_request.base.ref }}
+#           git fetch origin $BASE_BRANCH:$BASE_BRANCH
+#           HEAD_BRANCH=${{ github.head_ref }}
+#           git fetch origin $HEAD_BRANCH:$HEAD_BRANCH
 
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Get changed files
+#         id: changed-files
+#         run: |
+#           BASE_BRANCH=${{ github.event.pull_request.base.ref }}
+#           HEAD_BRANCH=${{ github.head_ref }}
+#           echo "Base Branch: $BASE_BRANCH"
+#           echo "Head Branch: $HEAD_BRANCH"
+#           CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
+#           echo "Changed files: $CHANGED_FILES"
+#           echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+#           echo "##[endgroup]"
+
+#       - name: Add labels based on changed files
+#         run: |
+#           CHANGED_FILES=$(echo $CHANGED_FILES)
+
+#           if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
+#             LABELS="${LABELS}pages,"
+#           fi
+#           if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
+#             LABELS="${LABELS}constants,"
+#           fi
+#           if echo "$CHANGED_FILES" | grep -q '^.github'; then
+#             LABELS="${LABELS}CI,"
+#           fi
+#           echo "Labels to apply: $LABELS"
+
+#           # Add labels to the PR
+#           gh pr edit ${{ github.event.pull_request.number }} --add-label "$LABELS"
+
+#     env:
+#       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
