@@ -7,6 +7,7 @@ export default () => {
       <body>
         <Main />
         {/* page */}
+        {/* page */}
         <NextScript />
       </body>
     </Html>
