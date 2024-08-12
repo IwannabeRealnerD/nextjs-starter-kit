@@ -30,6 +30,7 @@ jobs:
           echo "Head Branch: $HEAD_BRANCH"
           test="$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)"
           echo "Changed files: $test"
+          
           if echo "$test" | grep -q '^src/pages'; then
             LABELS="${LABELS}pages,"
           fi
@@ -43,6 +44,15 @@ jobs:
 
           echo "Labels to apply: $LABELS"
 
-          # Add labels to the PR
+      - name: Remove existing labels
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          EXISTING_LABELS=$(gh pr view $PR_NUMBER --json labels --jq '.labels | map(.name) | join(",")')
+          if [ -n "$EXISTING_LABELS" ]; then
+            gh pr edit $PR_NUMBER --remove-label "$EXISTING_LABELS"
+          fi
+
+      - name: Add new labels
+        run: |
           gh pr edit ${{ github.event.pull_request.number }} --label "$LABELS"
 
