@@ -61,6 +61,8 @@ jobs:
           if echo "$CHANGED_FILES" | grep -q '^.github'; then
             LABELS="${LABELS}CI,"
           fi
+          # Remove trailing comma
+          LABELS=$(echo "$LABELS" | sed 's/,$//')
           echo "Labels to apply: $LABELS"
 
           # Add labels to the PR
