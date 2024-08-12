@@ -7,8 +7,6 @@ on:
 jobs:
   label-pr:
     runs-on: ubuntu-latest
-    outputs:
-      fileNames: ${{ steps.changed-files.outputs.apk-filename }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -33,8 +31,9 @@ jobs:
 
       - name: Add labels based on changed files
         run: |
-          CHANGED_FILES=$(echo $CHANGED_FILES)
-
+          CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.fileNames }})
+          LABELS=""
+          
           if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
             LABELS="${LABELS}pages,"
           fi
