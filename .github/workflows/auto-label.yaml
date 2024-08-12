@@ -42,7 +42,6 @@ jobs:
           fi
           LABELS=$(echo "$LABELS" | sed 's/,$//')
 
-          echo "Labels to apply: $LABELS"
 
       - name: Remove existing labels
         run: |
