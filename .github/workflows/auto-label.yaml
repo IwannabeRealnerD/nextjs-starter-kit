@@ -29,7 +29,6 @@ jobs:
           echo "Base Branch: $BASE_BRANCH"
           echo "Head Branch: $HEAD_BRANCH"
           test="$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)"
-          echo "Changed files: $test"
 
           if echo "$test" | grep -q '^src/pages'; then
             LABELS="${LABELS}pages,"
