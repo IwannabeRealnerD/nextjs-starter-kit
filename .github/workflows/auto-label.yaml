@@ -34,6 +34,7 @@ jobs:
       - name: Add labels based on changed files
         run: |
           CHANGED_FILES=$(echo $CHANGED_FILES)
+          LABELS=""
 
           if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
             LABELS="${LABELS}pages,"
@@ -44,6 +45,7 @@ jobs:
           if echo "$CHANGED_FILES" | grep -q '^.github'; then
             LABELS="${LABELS}CI,"  
           fi
+          LABELS=$(echo $LABELS | sed 's/,$//')  # Remove trailing comma
           echo "Labels to apply: $LABELS"
 
           # Add labels to the PR
