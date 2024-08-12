@@ -32,7 +32,6 @@ jobs:
       - name: Add labels based on changed files
         run: |
           CHANGED_FILES=$(echo ${{ steps.changed-files.outputs.fileNames }})
-          LABELS=""
           test=""
 
           if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
