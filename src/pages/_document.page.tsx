@@ -5,7 +5,6 @@ export default () => {
     <Html lang="en">
       <Head />
       <body>
-        {/* hi */}
         <Main />
         <NextScript />
       </body>
