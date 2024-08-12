@@ -16,6 +16,7 @@ jobs:
 
       - name: Fetch base branch
         run: |
+          echo "Base Branch: ${{ github.event.pull_request.base.ref }}"
           BASE_BRANCH=${{ github.event.pull_request.base.ref }}
           git fetch origin $BASE_BRANCH:$BASE_BRANCH
           HEAD_BRANCH=${{ github.head_ref }}
