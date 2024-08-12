@@ -50,7 +50,7 @@ jobs:
 
       - name: Add labels based on changed files
         env:
-          CHANGED_FILES: ${{ env.CHANGED_FILES }}
+          CHANGED_FILES: ${{ steps.changed-files.outputs.CHANGED_FILES }}
         run: |
           if echo "$CHANGED_FILES" | grep -q '^src/pages'; then
             LABELS="${LABELS}pages,"
