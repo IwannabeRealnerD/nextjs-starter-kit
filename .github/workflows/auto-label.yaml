@@ -36,10 +36,8 @@ jobs:
           if echo "$CHANGED_FILES" | grep -q '^src/constants'; then
             LABELS="${LABELS}constants,"
           fi
-          if [ -z "$LABELS" ]; then
-            LABELS="General"
-          else
-            LABELS="${LABELS%?}"  
+          if echo "$CHANGED_FILES" | grep -q '^.github'; then
+            LABELS="${LABELS}CI,"  
           fi
 
           echo "Labels to apply: $LABELS"
