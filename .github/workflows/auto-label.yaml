@@ -28,7 +28,7 @@ jobs:
           echo "Head Branch: $HEAD_BRANCH"
           CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
           echo "Changed files: $CHANGED_FILES"
-          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV"
+          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
 
       - name: Add labels based on changed files
         run: |
