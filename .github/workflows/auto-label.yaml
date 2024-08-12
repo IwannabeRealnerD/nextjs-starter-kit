@@ -4,13 +4,11 @@ on:
   pull_request:
     types: [opened, synchronize]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   label-pr:
     runs-on: ubuntu-latest
-
+    env:
+      CHANGED_FILES: ""
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -29,9 +27,9 @@ jobs:
           HEAD_BRANCH=${{ github.head_ref }}
           echo "Base Branch: $BASE_BRANCH"
           echo "Head Branch: $HEAD_BRANCH"
-          CHANGED_FILES=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
-          echo "Changed files: $CHANGED_FILES"
-          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+          test=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
+          echo "Changed files: $test"
+          echo "CHANGED_FILES=$test" >> $GITHUB_ENV
           echo "##[endgroup]"
 
       - name: Add labels based on changed files
