@@ -25,7 +25,7 @@ jobs:
           HEAD_BRANCH=${{ github.head_ref }}
           echo "Base Branch: $BASE_BRANCH"
           echo "Head Branch: $HEAD_BRANCH"
-          test=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
+          test="$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)"
           echo "Changed files: $test"
           echo "fileNames=$test" >> $GITHUB_OUTPUT
 
