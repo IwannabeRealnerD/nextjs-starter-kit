@@ -2,14 +2,11 @@ pages:
   - changed-files:
       - any-glob-to-any-file:
           - src/pages/**
-    # - "src/pages/**"
 constants:
   - changed-files:
       - any-glob-to-any-file:
           - src/constants/**
-    # - "src/constants/**"
 CI:
   - changed-files:
       - any-glob-to-any-file:
           - ".github/**"
-    # - ".github/**"
