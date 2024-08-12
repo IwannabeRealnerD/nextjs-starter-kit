@@ -30,7 +30,6 @@ jobs:
           test=$(git diff --name-only origin/$BASE_BRANCH origin/$HEAD_BRANCH)
           echo "Changed files: $test"
           echo "fileNames=$test" >> $GITHUB_OUTPUT
-          echo "##[endgroup]"
 
       - name: Add labels based on changed files
         run: |
