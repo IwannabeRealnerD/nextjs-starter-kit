@@ -1,8 +1,0 @@
-{
-  "recommendations": ["dbaeumer.vscode-eslint"],
-  "unwantedRecommendations": [
-    "esbenp.prettier-vscode",
-    "rvest.vs-code-prettier-eslint",
-    "streetsidesoftware.code-spell-checker"
-  ]
-}

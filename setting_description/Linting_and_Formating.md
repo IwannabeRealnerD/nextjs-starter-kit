@@ -1,6 +1,6 @@
 # Linting and Formatting Setup Guide
 
-- This document provides a comprehensive guide to setting up linting and formatting tools for a NextJS project. The following sections cover the installation and configuration of various tools to ensure code quality and consistency.
+- This document contains information related to the linting and formating of the project, including the reasons for selecting libraries, configuration methods, and more.
 
 ## 1. typescript-eslint
 
@@ -33,7 +33,7 @@ pnpm add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
 
 - It's easier to start with the Airbnb ESLint configuration than to start everything from scratch. Users can personalize their code rules from this configuration.
 
-### 2-1. eslint-config-airbnb's peer dependency
+### 2-1. eslint-config-airbnb's Peer Dependency
 
 ```bash
 npx install-peerdeps --dev eslint-config-airbnb
@@ -49,7 +49,7 @@ pnpm add -D eslint-config-airbnb@19.0.4 eslint@^8.2.0 eslint-plugin-react@^7.28.
 
 - Install all peer dependencies in order implment eslint-config-airbnb
 
-### 1-2. apply eslint-config-airbnb
+### 1-2. Apply eslint-config-airbnb
 
 ```json
 //eslintrc.json
@@ -171,7 +171,7 @@ pnpm add -D prettier-plugin-sort-json
 
 - Note that this will not sort `package.json`, `package-lock.json`, or `composer.json`. This plugin only affects the JSON parser used by Prettier. Prettier uses a different parser (`json-stringify`) for these specific files.
 
-### 3-5. vscode eslint setting
+### 3-5. vscode eslint Setting
 
 - In order to use ESLint as a formatter in VS Code, User needs to enable "ESLint > Format:Enable" in VS Code settings.
   ![alt text](<images/lint/2. vscode enable ESLint as a formatter.png>)
@@ -196,3 +196,36 @@ pnpm add -D @cspell/eslint-plugin
 ```
 
 > **Note for VS Code users:** If the rule is changed, it's recommended to restart the ESLint server.
+
+## 5. eslint-plugin-boundaries
+
+- The eslint-plugin-boundaries is added to enforce project boundaries, such as preventing imports from child directories.
+- To improve readability and maintainability, the configuration has been moved from .eslintrc.json to lint-rules/boundary.json.
+- To maintain modular boundaries and ensure a clear separation of concerns, the project-wide shared directory (e.g., src/constants, src/types, etc.) is restricted from importing items from the pages directory.
+
+```bash
+pnpm add -D eslint-plugin-boundaries
+```
+
+## 6. @typescript-eslint/naming-convention
+
+- @typescript-eslint/naming-convention is added to enforce naming conventions.
+- To improve readability and maintainability, the configuration has been moved from .eslintrc.json to lint-rules/naming-convention.json.
+- For project-wide shared items, the naming convention requires them to start with “Global” (PascalCase or camelCase) to ensure consistency and easy identification from code base.
+- No need to download anything cos it's from `@typescript-eslint`.
+- There is no need to download anything additional, as it is included with @typescript-eslint.
+
+## 7. Configuring lint command with options
+
+- ESLint can be customized with various options to achieve certain goals.
+
+### 7.1 -c, --config
+
+- Use an additional configuration file for the lint command, which overrides the existing .eslintrc.\* files if there are conflicting options.
+- By default, the lint command uses the .eslintrc.\* files in the current directory. If not found, it searches in the parent directories.
+- In this project, this option was used to lint in pre-commit and pre-push hooks with additional rules.
+
+### 7.2 --no-eslintrc
+
+- Prevents the command from using the .eslintrc.\* files in the current directory.
+- Using the -c option, ESLint can be configured with additional rules without being affected by the .eslintrc.\* files in the current directory.
