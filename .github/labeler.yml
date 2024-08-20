@@ -35,5 +35,5 @@ CI:
 docs:
   - changed-files:
       - any-glob-to-any-file:
-          - "**.md"
-          - "**.mdx"
+          - "**/**.md"
+          - "**/**.mdx"
