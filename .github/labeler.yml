@@ -18,7 +18,7 @@ constants:
   - changed-files:
       - any-glob-to-any-file:
           - src/constants/**
-package:
+packages:
   - changed-files:
       - any-glob-to-any-file:
           - package.json
@@ -31,4 +31,9 @@ eslint:
 CI:
   - changed-files:
       - any-glob-to-any-file:
-          - ".github/**"
+          - .github/**
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**.md"
+          - "**.mdx"
