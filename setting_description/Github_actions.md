@@ -9,5 +9,5 @@
 
 ## 2. auto-label.yml
 
-- This action is used to automatically add labels to the PR based on the changed files.
-- User can change the label rules in the `.github/labeler.yml` file.
+- This action automatically adds labels to the PR based on the modified files.
+- Label rules can be modified in the .github/labeler.yml file.
