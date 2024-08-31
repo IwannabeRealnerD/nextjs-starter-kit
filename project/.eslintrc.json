@@ -1,0 +1,115 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    // "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/strict",
+    "airbnb",
+    "./lint-rules/boundary.json",
+    "./lint-rules/naming-convention.json",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": "src/pages/_app.tsx",
+      "rules": { "react/jsx-props-no-spreading": "off" }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
+  "rules": {
+    "@cspell/spellchecker": ["error", {}],
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "arrow-body-style": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
+
+        "newlines-between": "always"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "importNames": ["it"],
+            "message": "Please use \"test\" instead of \"it\" from vitest.",
+            "name": "vitest"
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "message": "Destructuring props is not allowed.",
+        "selector": "VariableDeclarator[id.type='ObjectPattern'][init.name='props']"
+      },
+      {
+        "message": "Destructuring props is not allowed.",
+        "selector": "AssignmentPattern[left.type='ObjectPattern'][right.name='props']"
+      }
+    ],
+    "no-unused-vars": "off",
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "react/destructuring-assignment": ["error", "never"],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true,
+        "shorthandFirst": true,
+        "shorthandLast": false
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "sort-keys-fix/sort-keys-fix": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true
+      }
+    ],
+    "unicorn/no-empty-file": "error"
+  }
+}
