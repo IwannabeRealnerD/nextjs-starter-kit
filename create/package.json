@@ -1,0 +1,31 @@
+{
+  "name": "create-nextjs-starter-kit",
+  "version": "0.0.1",
+  "description": "Create Next.js project with strong lint rules and useful tools",
+  "scripts": {
+    "dev": "pnpm ts-node ./index.ts",
+    "build": "pnpm ncc build ./index.ts -o ./bin/ -C -m --no-source-map-register",
+    "test": "echo test"
+  },
+  "dependencies": {
+    "@types/node": "^22.4.1",
+    "@vercel/ncc": "^0.38.1",
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.2",
+    "prompts": "^2.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.4.9"
+  },
+  "bin": {
+    "create-nextjs-starter-kit": "./bin/index.js"
+  },
+  "engines": {
+    "node": "20",
+    "pnpm": "9"
+  },
+  "author": "iwannaberealnerd",
+  "packageManager": "pnpm@9.9.0+sha256.7a4261e50d9a44d9240baf6c9d6e10089dcf0a79d0007f2a26985a6927324177"
+}
