@@ -8,9 +8,6 @@ import { getWantedFeature } from "@/utils/prompts/getWantedFeature";
 import { createProject } from "@/utils/createProject";
 import { getIsDescription } from "@/utils/prompts/getIsDescription";
 
-// TODO : implement env version
-// TODO : app directory
-
 (async () => {
   const program = new Command(packageJson.name);
   program.version(packageJson.version);
@@ -79,6 +76,6 @@ import { getIsDescription } from "@/utils/prompts/getIsDescription";
     `\nYou can start development by running the following command.\n`,
     "blue"
   );
-  logWithColor(`pnpm i\n`, "green");
-  logWithColor(`pnpm dev\n`, "green");
+  logWithColor(`  pnpm i`, "green");
+  logWithColor(`  pnpm dev\n`, "green");
 })();
