@@ -8,11 +8,6 @@
   </p>
 </div>
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=Node.js&logoColor=white">
-  <img src="https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=Typescript&logoColor=white">
-</div>
-
 > `create-nextjs-starter-kit` is a easiest and fastest way to create `nextjs-starter-kit` which has strong lint rules and useful tools.
 
 ## Before You Begin

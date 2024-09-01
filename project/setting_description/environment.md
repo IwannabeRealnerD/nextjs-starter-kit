@@ -117,3 +117,8 @@ pnpm lint-staged
   // ...omitted
 }
 ```
+
+### 4-2. Deleted prepare : husky install
+
+- The prepare script in package.json has been removed because Husky is already initialized and implemented in the project (the .gitignore file for Husky has also been deleted).
+  - Please read [this comment](https://github.com/typicode/husky/issues/1016#issuecomment-901882489) for more information.

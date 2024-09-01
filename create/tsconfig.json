@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
-    "module": "CommonJS",
+    "target": "es2019",
+    "moduleResolution": "bundler",
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./bin"
+    "skipLibCheck": false,
+    "paths": {
+      "@/utils/*": ["./utils/*"]
+    }
   },
-  "include": ["index.ts", "utils"],
-  "exclude": ["project"]
+
+  "exclude": ["project", "bin"]
 }

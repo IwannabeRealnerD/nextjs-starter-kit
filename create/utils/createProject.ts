@@ -1,5 +1,5 @@
 import fastGlob from "fast-glob";
-import path from "node:path";
+import path from "path";
 import fs from "fs/promises";
 import fsPromise from "node:fs/promises";
 
@@ -11,6 +11,7 @@ interface createProjectArgs {
 
 export const createProject = async (arg: createProjectArgs) => {
   const sourceDir = path.join(__dirname, "../project");
+  console.log(sourceDir);
   const targetDir = path.resolve(arg.projectName);
   const isStorybookWanted = arg.wantedFeatures?.includes("storybook");
   const isGithubActionsWanted =
@@ -53,16 +54,20 @@ export const createProject = async (arg: createProjectArgs) => {
   if (!isStorybookWanted) {
     await fs.writeFile(
       packageJson,
-      (
-        await fs.readFile(packageJson, "utf8")
-      ).replace(/.*storybook.*\n/g, "")
+      (await fs.readFile(packageJson, "utf8")).replace(
+        /.*storybook.*\n/g,
+        ""
+      )
     );
   }
+
+  // write project name to package.json
   await fs.writeFile(
     packageJson,
-    (
-      await fs.readFile(packageJson, "utf8")
-    ).replace(/("name":\s*")[^"]*(")/, `$1${arg.projectName}$2`)
+    (await fs.readFile(packageJson, "utf8")).replace(
+      /("name":\s*")[^"]*(")/,
+      `$1${arg.projectName}$2`
+    )
   );
 
   return targetDir;

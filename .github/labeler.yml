@@ -1,0 +1,17 @@
+nextjs-starter-kit:
+  - changed-files:
+      - any-glob-to-any-file:
+          - project/**
+create-nextjs-starter-kit:
+  - changed-files:
+      - any-glob-to-any-file:
+          - create/**
+CI:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/**.md"
+          - "**/**.mdx"

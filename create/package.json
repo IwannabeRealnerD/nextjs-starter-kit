@@ -2,10 +2,11 @@
   "name": "create-nextjs-starter-kit",
   "version": "0.0.1",
   "description": "Create Next.js project with strong lint rules and useful tools",
+  "type": "module",
   "scripts": {
     "dev": "pnpm ts-node ./index.ts",
-    "build": "pnpm ncc build ./index.ts -o ./bin/ -C -m --no-source-map-register",
-    "test": "echo test"
+    "build": "cp -r ../project ./ && pnpm ncc build ./index.ts -o ./bin/ -C -m --no-source-map-register ; rm -rf project",
+    "test": "pnpm vitest run"
   },
   "dependencies": {
     "@types/node": "^22.4.1",
@@ -17,7 +18,10 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@types/prompts": "^2.4.9"
+    "@types/prompts": "^2.4.9",
+    "husky": "^8.0.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.6.0"
   },
   "bin": {
     "create-nextjs-starter-kit": "./bin/index.js"

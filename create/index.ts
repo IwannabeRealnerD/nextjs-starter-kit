@@ -1,14 +1,16 @@
 import prompts from "prompts";
-import path from "node:path";
-import { logWithColor } from "./utils/logWithColor";
-import { createProject } from "./utils/createProject";
-import { existsSync } from "fs";
+import path from "path";
 import { Command } from "commander";
+import { existsSync } from "node:fs";
 import packageJson from "./package.json";
+import { logWithColor } from "@/utils/logWithColor";
+import { getWantedFeature } from "@/utils/prompts/getWantedFeature";
+import { createProject } from "@/utils/createProject";
+import { getIsDescription } from "@/utils/prompts/getIsDescription";
 
-// TODO : implement minimal and full options
 // TODO : implement env version
 // TODO : app directory
+
 (async () => {
   const program = new Command(packageJson.name);
   program.version(packageJson.version);
@@ -19,7 +21,7 @@ import packageJson from "./package.json";
     "Create minimal version of this project"
   );
   program.option("-f, --full", "Create full version of this project");
-  program.parse(process.argv);
+  program.parse();
 
   logWithColor(
     "Nextjs-starter-kit is highly optimized for macOS and Visual Studio Code environments, featuring very strict linting rules.\n",
@@ -50,26 +52,15 @@ import packageJson from "./package.json";
     );
   }
 
-  const isDescription = await prompts({
-    type: "toggle",
-    name: "isDescription",
-    message:
-      "Do you need descriptions about this project? (Recommended for first-time users of this project.)",
-    initial: true,
-    active: "yes",
-    inactive: "no",
-  });
+  const isDescription = await getIsDescription(
+    program.opts().full,
+    program.opts().minimal
+  );
 
-  const wantedFeatures = await prompts({
-    type: "multiselect",
-    name: "wantedFeatures",
-    message: "Pick what you want add in this project.",
-    choices: [
-      { title: "storybook", value: "storybook" },
-      { title: "essential github actions", value: "github actions" },
-      { title: "test code for util functions", value: "test code" },
-    ],
-  });
+  const wantedFeatures = await getWantedFeature(
+    program.opts().full,
+    program.opts().minimal
+  );
 
   const userAnswers = Object.assign(
     {},
@@ -81,7 +72,13 @@ import packageJson from "./package.json";
   const projectLocation = await createProject(userAnswers);
 
   logWithColor(
-    `\nProject is created successfully at ${projectLocation}`,
+    `\nProject is created successfully at ${projectLocation}\n`,
     "blue"
   );
+  logWithColor(
+    `\nYou can start development by running the following command.\n`,
+    "blue"
+  );
+  logWithColor(`pnpm i\n`, "green");
+  logWithColor(`pnpm dev\n`, "green");
 })();
