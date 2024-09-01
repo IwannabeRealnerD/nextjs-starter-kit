@@ -18,7 +18,13 @@ export const createProject = async (arg: createProjectArgs) => {
     arg.wantedFeatures?.includes("github actions");
   const isTestCodeWanted = arg.wantedFeatures?.includes("test code");
 
-  const copyList = ["**"];
+  const copyList = [
+    "**",
+    "!node_modules",
+    "!turbo",
+    "!tsconfig.tsbuildinfo",
+    "!next-env.d.ts",
+  ];
   if (!arg.isDescription) {
     copyList.push("!setting_description/**");
   }
