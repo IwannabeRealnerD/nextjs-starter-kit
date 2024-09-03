@@ -1,9 +1,6 @@
 import prompts, { Answers } from "prompts";
 
-export const getIsDescription = async (
-  isFull?: boolean,
-  isMinimum?: boolean
-): Promise<Answers<"isDescription">> => {
+export const getIsDescription = async (isFull?: boolean, isMinimum?: boolean): Promise<Answers<"isDescription">> => {
   if (isFull) {
     return { isDescription: true };
   }
@@ -12,15 +9,13 @@ export const getIsDescription = async (
       isDescription: false,
     };
   }
-
   const isDescription = await prompts({
-    type: "toggle",
-    name: "isDescription",
-    message:
-      "Do you need descriptions about this project? (Recommended for first-time users of this project.)",
-    initial: true,
     active: "yes",
     inactive: "no",
+    initial: true,
+    message: "Do you need descriptions about this project? (Recommended for first-time users of this project.)",
+    name: "isDescription",
+    type: "toggle",
   });
 
   return isDescription;

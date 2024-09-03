@@ -1,10 +1,23 @@
 {
+  "name": "nextjs-starter-kit",
   "version": "0.1.0",
+  "type": "module",
   "dependencies": {
     "@vanilla-extract/css": "^1.15.3",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18"
+  },
+  "scripts": {
+    "analyze": "ANALYZE=true pnpm build",
+    "build": "next build",
+    "dev": "next dev",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "pwd": "pwd",
+    "lint": "next lint",
+    "test": "vitest run",
+    "start": "next start"
   },
   "devDependencies": {
     "storybook": "^8.2.2",
@@ -59,19 +72,5 @@
       "bash -c tsc --noEmit --pretty"
     ]
   },
-  "name": "nextjs-starter-kit",
-  "packageManager": "pnpm@9.9.0+sha256.7a4261e50d9a44d9240baf6c9d6e10089dcf0a79d0007f2a26985a6927324177",
-  "private": true,
-  "scripts": {
-    "analyze": "ANALYZE=true pnpm build",
-    "build": "next build",
-    "dev": "next dev",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "pwd": "pwd",
-    "lint": "next lint",
-    "test": "vitest run",
-    "start": "next start"
-  },
-  "type": "module"
+  "packageManager": "pnpm@9.9.0+sha256.7a4261e50d9a44d9240baf6c9d6e10089dcf0a79d0007f2a26985a6927324177"
 }

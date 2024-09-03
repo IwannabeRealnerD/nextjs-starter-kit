@@ -1,7 +1,6 @@
 import { describe, test, expect, vi } from "vitest";
 
 import { getIsDescription } from "@/utils/prompts/getIsDescription";
-import prompts from "prompts";
 
 describe("getWantedFeature()", () => {
   test("Return an wantedFeatures object with empty array if isFullFeature is false.", async () => {
@@ -22,10 +21,7 @@ describe("getWantedFeature()", () => {
         isDescription: true,
       }),
     }));
-    const wantedFeatures = await getIsDescription(
-      undefined,
-      undefined
-    );
+    const wantedFeatures = await getIsDescription(undefined, undefined);
     expect(wantedFeatures).toEqual({
       isDescription: true,
     });

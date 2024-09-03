@@ -1,0 +1,94 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/stylistic",
+    "plugin:@typescript-eslint/strict",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": "src/pages/_app.tsx",
+      "rules": { "react/jsx-props-no-spreading": "off" }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@cspell", "sort-keys-fix", "unicorn", "import"],
+  "root": true,
+  "rules": {
+    "@cspell/spellchecker": ["error", {}],
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "arrow-body-style": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "group": "index",
+            "pattern": "@/utils/**",
+            "position": "before"
+          }
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "importNames": ["it"],
+            "message": "Please use \"test\" instead of \"it\" from vitest.",
+            "name": "vitest"
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "message": "Destructuring props is not allowed.",
+        "selector": "VariableDeclarator[id.type='ObjectPattern'][init.name='props']"
+      },
+      {
+        "message": "Destructuring props is not allowed.",
+        "selector": "AssignmentPattern[left.type='ObjectPattern'][right.name='props']"
+      }
+    ],
+    "no-unused-vars": "off",
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "sort-keys-fix/sort-keys-fix": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true
+      }
+    ],
+    "unicorn/no-empty-file": "error"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "extensions": [".ts", ".tsx", ".d.ts", ".css"]
+      }
+    }
+  }
+}

@@ -1,9 +1,6 @@
 import prompts, { Answers } from "prompts";
 
-export const getWantedFeature = async (
-  isFull?: boolean,
-  isMinimum?: boolean
-): Promise<Answers<"wantedFeatures">> => {
+export const getWantedFeature = async (isFull?: boolean, isMinimum?: boolean): Promise<Answers<"wantedFeatures">> => {
   if (isFull) {
     return { wantedFeatures: [] };
   }
@@ -14,9 +11,6 @@ export const getWantedFeature = async (
   }
 
   const wantedFeatures = await prompts({
-    type: "multiselect",
-    name: "wantedFeatures",
-    message: "Pick what you want to add in this project.",
     choices: [
       { title: "storybook", value: "storybook" },
       {
@@ -28,6 +22,9 @@ export const getWantedFeature = async (
         value: "test code",
       },
     ],
+    message: "Pick what you want to add in this project.",
+    name: "wantedFeatures",
+    type: "multiselect",
   });
   return wantedFeatures;
 };
