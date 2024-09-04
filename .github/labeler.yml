@@ -15,3 +15,11 @@ docs:
       - any-glob-to-any-file:
           - "**/**.md"
           - "**/**.mdx"
+vscode-settings:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".vscode/**"
+turbo:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "turbo.json"
