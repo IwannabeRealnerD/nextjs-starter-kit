@@ -1,6 +1,6 @@
 {
   "name": "create-nextjs-starter-kit",
-  "version": "0.0.12",
+  "version": "0.0.1",
   "description": "Create Next.js project with strong lint rules and useful tools",
   "type": "module",
   "scripts": {
