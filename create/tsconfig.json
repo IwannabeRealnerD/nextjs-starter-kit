@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "paths": {
+      "@/utils/*": ["./utils/*"]
+    }
+  },
+
+  "exclude": ["project", "bin"]
+}
