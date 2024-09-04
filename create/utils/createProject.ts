@@ -5,8 +5,8 @@ import fastGlob from "fast-glob";
 
 interface createProjectArgs {
   isDescription: boolean;
-  projectName: string;
   wantedFeatures: string[] | undefined;
+  projectName: string;
 }
 
 export const createProject = async (arg: createProjectArgs) => {
@@ -50,7 +50,8 @@ export const createProject = async (arg: createProjectArgs) => {
   const packageJson = path.join(targetDir, "package.json");
 
   if (!isStorybookWanted) {
-    await fs.writeFile(packageJson, (await fs.readFile(packageJson, "utf8")).replace(/.*storybook.*\n/g, ""));
+    const noStorybookPackageJson = (await fs.readFile(packageJson, "utf8")).replace(/.*storybook.*\n/g, "");
+    await fs.writeFile(packageJson, noStorybookPackageJson);
   }
 
   // write project name to package.json

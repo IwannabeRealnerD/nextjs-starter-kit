@@ -6,12 +6,7 @@
     "plugin:@typescript-eslint/strict",
     "prettier"
   ],
-  "overrides": [
-    {
-      "files": "src/pages/_app.tsx",
-      "rules": { "react/jsx-props-no-spreading": "off" }
-    }
-  ],
+  "ignorePatterns": ["bin", "node_modules", ".turbo"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@cspell", "sort-keys-fix", "unicorn", "import"],
   "root": true,

@@ -25,7 +25,8 @@
     "pnpm": "9"
   },
   "scripts": {
-    "test:all": "turbo run --parallel test"
+    "test:all": "turbo run test",
+    "lint:all": "turbo run lint"
   },
   "devDependencies": {
     "turbo": "^2.1.1"

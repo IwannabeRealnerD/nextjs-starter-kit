@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "pnpm ts-node ./index.ts",
     "build": "cp -r ../project ./ && pnpm ncc build ./index.ts -o ./bin/ -C -m --no-source-map-register ; rm -rf project",
-    "test": "pnpm vitest run"
+    "test": "pnpm vitest run",
+    "lint": "pnpm eslint ."
   },
   "dependencies": {
     "@vercel/ncc": "^0.38.1",

@@ -45,9 +45,7 @@ import packageJson from "./package.json";
   } while (existsSync(targetLocation));
 
   const isDescription = await getIsDescription(program.opts().full, program.opts().minimal);
-
   const wantedFeatures = await getWantedFeature(program.opts().full, program.opts().minimal);
-
   const userAnswers = Object.assign({}, projectName, isDescription, wantedFeatures);
 
   const projectLocation = await createProject(userAnswers);
