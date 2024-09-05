@@ -29,5 +29,12 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "commentAnchors.tags.separators": [" - "],
+  "commentAnchors.tags.anchors": {
+    "ANCHOR": {
+      "enabled": false,
+      "scope": "workspace"
+    }
+  }
 }
