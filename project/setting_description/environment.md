@@ -122,3 +122,69 @@ pnpm lint-staged
 
 - The prepare script in package.json has been removed because Husky is already initialized and implemented in the project (the .gitignore file for Husky has also been deleted).
   - Please read [this comment](https://github.com/typicode/husky/issues/1016#issuecomment-901882489) for more information.
+
+## 5. vscode settings
+
+- The nextjs-starter-kit is highly optimized for use with Visual Studio Code (VS Code). For instance, the .vscode directory contains configuration settings tailored for monorepo management and specific extensions.
+
+### 5-1. lint
+- Since this project uses lint-fix as the formatter instead of Prettier, appropriate settings for ESLint should be configured in the settings.json file.
+
+```json
+{
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[svg]": {
+    "editor.formatOnSave": false,
+    "files.insertFinalNewline": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  //...omitted
+```
+
+### 5-2. monorepo
+- Given that this project is a monorepo, appropriate settings must be configured in the settings.json file to support the monorepo structure.
+- The .eslintrc.json file includes the `"root": true` setting, which ensures that ESLint operates correctly within a monorepo.
+- Additionally, the .vscode/settings.json file should contain settings to ensure ESLint functions properly in the monorepo environment.
+
+```json
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ]
+}
+```
+- The JSON above configures ESLint to automatically detect the root directory for each sub-project within the monorepo.
+- The mode: "auto" setting ensures that ESLint applies the correct configuration based on the location of .eslintrc or package.json files within the directory hierarchy.
+
+### 5-3. extensions
+- The ./vscode/extensions.json file lists the extensions used in the project. While not mandatory, it is advisable to include this file.
+
+```json
+{
+  "recommendations": ["exodiusstudios.comment-anchors"]
+}
+```
+
+- `exodiusstudios.comment-anchors` extension for VS Code allows the creation of anchors in the code, making it easier to navigate through the editor’s sidebar.
