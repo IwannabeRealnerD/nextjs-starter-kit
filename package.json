@@ -1,5 +1,5 @@
 {
-  "name": "next-starter-kit",
+  "name": "nextjs-starter-kit",
   "version": "0.0.0",
   "description": "NextJS Starter Kit with create command",
   "author": "IwannabeRealnerD <iwannaberealnerd@gmail.com>",
@@ -25,6 +25,8 @@
     "pnpm": "9"
   },
   "scripts": {
+    "create-app": "pnpm --filter create-nextjs-starter-kit",
+    "project-app": "pnpm --filter nextjs-starter-kit",
     "test:all": "turbo run test",
     "lint:all": "turbo run lint"
   },
