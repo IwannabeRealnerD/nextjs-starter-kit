@@ -19,7 +19,6 @@ import packageJson from "./package.json";
   program.option("-m, --minimal", "Create minimal version of this project");
   program.option("-f, --full", "Create full version of this project");
   program.parse();
-
   logWithColor(
     "Nextjs-starter-kit is highly optimized for macOS and Visual Studio Code environments, featuring very strict linting rules.\n",
     "yellow"
