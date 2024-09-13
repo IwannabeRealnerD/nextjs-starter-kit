@@ -35,3 +35,41 @@
    ```
 
 3. Done
+
+## How to Test in Local Environment
+
+### With Predefined command
+
+1. build and link with the command
+
+```sh
+pnpm global-link
+```
+
+2. Start the project
+
+```sh
+create-nextjs-starter-kit
+```
+
+### Manually
+
+- The procedure must be followed each time the project needs to be tested in the local environment.
+
+1. Build the project for local testing:
+
+```sh
+pnpm build
+```
+
+2. Link the project globally:
+
+```sh
+pnpm link --global
+```
+
+3. Start the project:
+
+```sh
+create-nextjs-starter-kit
+```
