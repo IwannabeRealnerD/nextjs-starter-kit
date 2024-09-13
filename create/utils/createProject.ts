@@ -10,7 +10,7 @@ interface createProjectArgs {
 }
 
 export const createProject = async (arg: createProjectArgs) => {
-  const sourceDir = path.join(__dirname, "../project");
+  const sourceDir = path.join(__dirname, "./project");
   const targetDir = path.resolve(arg.projectName);
   const isStorybookWanted = arg.wantedFeatures?.includes("storybook");
   const isGithubActionsWanted = arg.wantedFeatures?.includes("github actions");
@@ -47,6 +47,7 @@ export const createProject = async (arg: createProjectArgs) => {
       return fs.copyFile(from, to);
     })
   );
+
   const packageJson = path.join(targetDir, "package.json");
 
   if (!isStorybookWanted) {

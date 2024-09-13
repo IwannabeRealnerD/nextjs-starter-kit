@@ -11,7 +11,7 @@ import { getWantedFeature } from "@/utils/prompts/getWantedFeature";
 
 import packageJson from "./package.json";
 
-(async () => {
+const main = async () => {
   const program = new Command(packageJson.name);
   program.version(packageJson.version);
   program.description(packageJson.description);
@@ -53,4 +53,6 @@ import packageJson from "./package.json";
   logWithColor(`\nYou can start development by running the following command.\n`, "blue");
   logWithColor(`  pnpm i`, "green");
   logWithColor(`  pnpm dev\n`, "green");
-})();
+};
+
+main();

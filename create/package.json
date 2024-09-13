@@ -1,13 +1,14 @@
 {
   "name": "create-nextjs-starter-kit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create Next.js project with strong lint rules and useful tools",
-  "type": "module",
   "scripts": {
-    "dev": "pnpm ts-node ./index.ts",
-    "build": "cp -r ../project ./ && pnpm ncc build ./index.ts -o ./bin/ -C -m --no-source-map-register ; rm -rf project",
+    "dev": "pnpm build && node ./bin/index.js",
+    "copy": "mkdir -p ./bin/project && rsync -avh --exclude 'node_modules' --exclude '.next' --exclude '.turbo' --exclude '.DS_Store' --exclude 'next.env.d.ts' --exclude 'tsconfig.tsbuildinfo' ../project/ ./bin/project",
+    "build": "pnpm copy && pnpm ncc build ./index.ts -o ./bin/ -C -m --no-source-map-register",
     "test": "pnpm vitest run",
     "global-link": "pnpm build && pnpm link --global",
+    "test:util": "pnpm vitest run ./test/util",
     "lint": "pnpm eslint ."
   },
   "dependencies": {
