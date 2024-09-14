@@ -48,6 +48,7 @@
 ## Before using this project
 
 - `nextjs-starter-kit` uses complex and strict linting rules. Please read [this document](./project/setting_description/linting_and_formatting.md) carefully to avoid potential issues or conflicts with personal preferences.
+  - It also has highly opinionated linting rules, which can be customized to match personal preferences.
 - `nextjs-starter-kit` is highly optimized for mac and vscode environment. Please use it in the same environment to avoid unexpected issues.
 
 ## Explanation about implemented features
