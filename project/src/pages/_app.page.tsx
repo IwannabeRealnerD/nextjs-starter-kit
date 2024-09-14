@@ -1,6 +1,10 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 
-export default (props: AppProps) => {
-  return <props.Component {...props.pageProps} />;
+// TODO - Layout 추가하기
+
+const App = ({ Component, pageProps }: AppProps) => {
+  return <Component {...pageProps} />;
 };
+
+export default App;
