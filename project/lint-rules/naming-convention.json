@@ -104,6 +104,21 @@
           }
         ]
       }
+    },
+    {
+      "files": "src/pages/**/**.page.tsx",
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "format": ["StrictPascalCase"],
+            "modifiers": ["exported"],
+            "selector": ["function", "variable"],
+            "suffix": ["Page"]
+          }
+        ]
+      }
     }
   ]
 }

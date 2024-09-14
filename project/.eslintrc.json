@@ -13,8 +13,13 @@
   ],
   "overrides": [
     {
-      "files": "src/pages/_app.tsx",
-      "rules": { "react/jsx-props-no-spreading": "off" }
+      "excludedFiles": ["src/**/*.page.tsx", "**/*.stories.ts"],
+      "files": ["src/**/*.tsx", "src/**/*.ts"],
+      "rules": { "import/no-default-export": "error" }
+    },
+    {
+      "files": "src/**/*.page.tsx",
+      "rules": { "import/no-named-export": "error" }
     }
   ],
   "parser": "@typescript-eslint/parser",
