@@ -42,9 +42,19 @@
           "caseInsensitive": true,
           "order": "asc"
         },
-        "groups": ["builtin", "external", "internal", ["index", "sibling", "parent"]],
-
-        "newlines-between": "always"
+        "distinctGroup": false,
+        "groups": ["builtin", "external", "internal", ["parent", "sibling", "index"]],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "group": "builtin",
+            "pattern": "react",
+            "position": "before"
+          },
+          { "group": "builtin", "pattern": "next", "position": "before" },
+          { "group": "builtin", "pattern": "next/**", "position": "before" }
+        ],
+        "pathGroupsExcludedImportTypes": []
       }
     ],
     "import/prefer-default-export": "off",
@@ -58,17 +68,6 @@
             "name": "vitest"
           }
         ]
-      }
-    ],
-    "no-restricted-syntax": [
-      "error",
-      {
-        "message": "Destructuring props is not allowed.",
-        "selector": "VariableDeclarator[id.type='ObjectPattern'][init.name='props']"
-      },
-      {
-        "message": "Destructuring props is not allowed.",
-        "selector": "AssignmentPattern[left.type='ObjectPattern'][right.name='props']"
       }
     ],
     "no-unused-vars": "off",
