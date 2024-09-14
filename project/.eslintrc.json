@@ -13,8 +13,8 @@
   ],
   "overrides": [
     {
-      "excludedFiles": ["src/**/*.page.tsx"],
-      "files": ["src/**/*.tsx"],
+      "excludedFiles": ["src/**/*.page.tsx", "**/*.stories.ts"],
+      "files": ["src/**/*.tsx", "src/**/*.ts"],
       "rules": { "import/no-default-export": "error" }
     },
     {
