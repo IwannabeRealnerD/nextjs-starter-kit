@@ -1,5 +1,10 @@
-import * as style from "./index.css";
+import type { AppProps } from "next/app";
+import "@/styles/globals.css";
 
-export default () => {
-  return <h2 className={style.heading}>Index Page</h2>;
+// TODO - Layout 추가하기
+
+const App = ({ Component, pageProps }: AppProps) => {
+  return <Component {...pageProps} />;
 };
+
+export default App;
