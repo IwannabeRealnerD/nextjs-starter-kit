@@ -104,6 +104,12 @@
         "shorthandLast": false
       }
     ],
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": ["jsx"]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "sort-keys-fix/sort-keys-fix": [
