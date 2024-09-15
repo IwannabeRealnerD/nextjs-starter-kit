@@ -12,12 +12,11 @@
     "analyze": "ANALYZE=true pnpm build",
     "build": "next build",
     "dev": "next dev",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "pwd": "pwd",
     "lint": "next lint",
     "test": "vitest run",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",

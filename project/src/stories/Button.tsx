@@ -1,58 +1,31 @@
 import React from "react";
 
 import "./button.css";
-import { globalOmit } from "@/utils/globalOmit";
 
 export interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
+  /** Is this the principal call to action on the page? */
   primary?: boolean;
-  /**
-   * What background color to use
-   */
+  /** What background color to use */
   backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
+  /** How large should the button be? */
   size?: "small" | "medium" | "large";
-  /**
-   * Button contents
-   */
+  /** Button contents */
   label: string;
-  /**
-   * Optional click handler
-   */
+  /** Optional click handler */
   onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
-
-export const Button = (props: ButtonProps) => {
-  const omittedProps = globalOmit(props, "primary", "size", "backgroundColor", "label");
-
-  const mode = props.primary ? "storybook-button--primary" : "storybook-button--secondary";
-
+/** Primary UI component for user interaction */
+export const Button = ({ primary = false, size = "medium", backgroundColor, label, ...props }: ButtonProps) => {
+  const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
   return (
-    <button
-      className={["storybook-button", `storybook-button--${props.size}`, mode].join(" ")}
-      type="button"
-      {...omittedProps}
-    >
-      {props.label}
-      {/* eslint-disable-next-line react/no-unknown-property */}
+    <button className={["storybook-button", `storybook-button--${size}`, mode].join(" ")} type="button" {...props}>
+      {label}
       <style jsx>{`
         button {
-          background-color: ${props.backgroundColor};
+          background-color: ${backgroundColor};
         }
       `}</style>
     </button>
   );
 };
-
-Button.defaultProps = {
-  primary: false,
-  size: "medium",
-} as ButtonProps;

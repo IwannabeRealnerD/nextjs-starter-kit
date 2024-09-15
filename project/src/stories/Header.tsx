@@ -14,7 +14,6 @@ export interface HeaderProps {
   onCreateAccount?: () => void;
 }
 
-// eslint-disable-next-line react/destructuring-assignment
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
   <header>
     <div className="storybook-header">
