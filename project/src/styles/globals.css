@@ -19,7 +19,14 @@ h6,
 p,
 blockquote,
 pre,
-a,
+a {
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+,
 abbr,
 acronym,
 address,
