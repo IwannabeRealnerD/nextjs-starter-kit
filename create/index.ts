@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync } from "fs";
 import path from "path";
 
 import { Command } from "commander";
@@ -50,9 +50,15 @@ const main = async () => {
   const projectLocation = await createProject(userAnswers);
 
   logWithColor(`\nProject is created successfully at ${projectLocation}\n`, "blue");
-  logWithColor(`\nYou can start development by running the following command.\n`, "blue");
+  logWithColor(`You can start development by running the following command.\n`, "blue");
+  logWithColor(`  cd ${projectLocation}`, "green");
   logWithColor(`  pnpm i`, "green");
   logWithColor(`  pnpm dev\n`, "green");
+  logWithColor(
+    `\nPrepare command for husky install is intentionally omitted. please don't forget to install husky for git hooks.\n`,
+    "blue"
+  );
+  logWithColor(`\n  pnpm husky install\n`, "green");
 };
 
 main();
