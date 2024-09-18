@@ -1,7 +1,7 @@
 {
   "overrides": [
     {
-      "files": "src/constants/**/*.+(ts|tsx)",
+      "files": "src/constants/**/*.ts",
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/naming-convention": [
@@ -46,7 +46,7 @@
       }
     },
     {
-      "files": "src/types/**/*.+(ts|tsx)",
+      "files": "src/types/**/*.ts",
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/naming-convention": [
@@ -61,7 +61,7 @@
       }
     },
     {
-      "files": "src/components/**/*.+(ts|tsx)",
+      "files": "src/components/**/*.tsx",
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/naming-convention": [
@@ -91,7 +91,7 @@
       }
     },
     {
-      "files": "src/pages/**/**.spec.+(ts|tsx)",
+      "files": "src/apis/hooks/**.tsx",
       "plugins": ["@typescript-eslint"],
       "rules": {
         "@typescript-eslint/naming-convention": [
