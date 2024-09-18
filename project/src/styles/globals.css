@@ -3,6 +3,12 @@
    License: none (public domain)
 */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -16,10 +22,8 @@ h3,
 h4,
 h5,
 h6,
-p,
 blockquote,
 pre,
-a,
 abbr,
 acronym,
 address,
@@ -108,6 +112,10 @@ section {
 body {
   line-height: 1;
 }
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
 ol,
 ul {
   list-style: none;
@@ -126,4 +134,15 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
