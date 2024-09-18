@@ -140,3 +140,9 @@ a {
   text-decoration: none;
   display: block;
 }
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
