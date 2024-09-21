@@ -25,7 +25,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
   "rules": {
-    "@cspell/spellchecker": ["error", {}],
+    "@cspell/spellchecker": ["error", { "ignoreImports": false }],
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "arrow-body-style": "off",

@@ -215,7 +215,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       typescript:
-        specifier: ^5
+        specifier: ^5.5.4
         version: 5.5.4
       vite-tsconfig-paths:
         specifier: ^4.3.2
