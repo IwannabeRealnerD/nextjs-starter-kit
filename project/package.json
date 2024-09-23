@@ -15,6 +15,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "test": "vitest run",
+    "test:watch": "vitest",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
