@@ -1,0 +1,125 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    // "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/strict",
+    "airbnb",
+    "./lint-rules/boundary.json",
+    "./lint-rules/naming-convention.json",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "excludedFiles": ["src/**/*.page.tsx", "**/*.stories.ts"],
+      "files": ["src/**/*.tsx", "src/**/*.ts"],
+      "rules": { "import/no-default-export": "error" }
+    },
+    {
+      "files": "src/**/*.page.tsx",
+      "rules": { "import/no-named-export": "error" }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
+  "rules": {
+    "@cspell/spellchecker": ["error", { "ignoreImports": false }],
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "arrow-body-style": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "distinctGroup": false,
+        "groups": ["builtin", "external", "internal", "parent", ["index", "sibling"]],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "group": "builtin",
+            "pattern": "react",
+            "position": "before"
+          },
+          { "group": "builtin", "pattern": "next", "position": "before" },
+          { "group": "builtin", "pattern": "next/**", "position": "before" }
+        ],
+        "pathGroupsExcludedImportTypes": []
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "importNames": ["it"],
+            "message": "Please use \"test\" instead of \"it\" from vitest.",
+            "name": "vitest"
+          }
+        ]
+      }
+    ],
+    "no-unused-vars": "off",
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "react/destructuring-assignment": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true,
+        "shorthandFirst": true,
+        "shorthandLast": false
+      }
+    ],
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": ["jsx"]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "sort-keys-fix/sort-keys-fix": [
+      "error",
+      "asc",
+      {
+        "caseSensitive": true,
+        "natural": true
+      }
+    ],
+    "unicorn/no-empty-file": "error"
+  }
+}

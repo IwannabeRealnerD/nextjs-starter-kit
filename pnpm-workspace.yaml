@@ -1,0 +1,4 @@
+packages:
+  - "create"
+  - "project"
+  - "!**/test/**"
