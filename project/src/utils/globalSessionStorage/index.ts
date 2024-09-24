@@ -16,21 +16,24 @@ export const globalGetSessionStorage = <T extends keyof SessionStorage>(key: T) 
 };
 
 export const globalSetSessionStorage = <K extends keyof SessionStorage>(key: K, value: SessionStorage[K]) => {
-  const serializeDate = (deSerializedValue: SessionStorage[K]): unknown => {
+  const serializeData = (deSerializedValue: unknown): unknown => {
     if (deSerializedValue instanceof Date) {
       return `${GLOBAL_DATE_PREFIX}${deSerializedValue.toISOString()}`;
     }
     if (deSerializedValue === null) {
       return null;
     }
+    if (Array.isArray(deSerializedValue)) {
+      return deSerializedValue.map((item) => serializeData(item));
+    }
     if (typeof deSerializedValue === "object") {
       return Object.fromEntries(
-        Object.entries(deSerializedValue).map(([_key, _value]) => [_key, serializeDate(_value)])
+        Object.entries(deSerializedValue).map(([_key, _value]) => [_key, serializeData(_value)])
       );
     }
     return deSerializedValue;
   };
-  sessionStorage.setItem(key, JSON.stringify(serializeDate(value)));
+  sessionStorage.setItem(key, JSON.stringify(serializeData(value)));
 };
 
 export const globalRemoveSessionStorage = (key: keyof SessionStorage) => {
