@@ -117,9 +117,9 @@ describe("sharedLocalStorage", () => {
   });
 
   test("should remove value", () => {
-    localStorage.setItem("accessToken", "value");
+    localStorage.setItem("string", "value");
     globalRemoveLocalStorage("string");
-    const result = localStorage.getItem("accessToken");
+    const result = localStorage.getItem("string");
     expect(result).toBeNull();
   });
 
