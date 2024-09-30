@@ -6,9 +6,9 @@ import {
   globalRemoveLocalStorage as originalGlobalRemoveLocalStorage,
   globalSetLocalStorage as originalGlobalSetLocalStorage,
 } from "@/utils/globalLocalStorage";
-import { LocalStorage } from "@/utils/globalLocalStorage/type";
 
-interface TestLocalStorage extends LocalStorage {
+interface TestLocalStorage {
+  string: string;
   testDate: Date;
   testStringArray: string[];
   testNumberArray: number[];
@@ -34,7 +34,7 @@ type OverriddenGlobalSetLocalStorage = <K extends keyof TestLocalStorage>(
 
 const globalSetLocalStorage = originalGlobalSetLocalStorage as OverriddenGlobalSetLocalStorage;
 const globalGetLocalStorage = originalGlobalGetLocalStorage as OverriddenGlobalGetLocalStorage;
-const globalRemoveLocalStorage = originalGlobalRemoveLocalStorage as OverriddenGlobalRemoveLocalStorage;
+const globalRemoveLocalStorage = originalGlobalRemoveLocalStorage as unknown as OverriddenGlobalRemoveLocalStorage;
 
 describe("sharedLocalStorage", () => {
   beforeEach(() => {
@@ -42,8 +42,8 @@ describe("sharedLocalStorage", () => {
   });
 
   test("should set string primitive value", () => {
-    globalSetLocalStorage("accessToken", "testToken");
-    const result = localStorage.getItem("accessToken");
+    globalSetLocalStorage("string", "testToken");
+    const result = localStorage.getItem("string");
     expect(result).toBe('"testToken"');
   });
 
@@ -118,13 +118,13 @@ describe("sharedLocalStorage", () => {
 
   test("should remove value", () => {
     localStorage.setItem("accessToken", "value");
-    globalRemoveLocalStorage("accessToken");
+    globalRemoveLocalStorage("string");
     const result = localStorage.getItem("accessToken");
     expect(result).toBeNull();
   });
 
   test("should return null when querying non-existent key", () => {
-    const result = globalGetLocalStorage("nonExistentKey" as keyof LocalStorage);
+    const result = globalGetLocalStorage("nonExistentKey" as keyof TestLocalStorage);
     expect(result).toBeNull();
   });
 
