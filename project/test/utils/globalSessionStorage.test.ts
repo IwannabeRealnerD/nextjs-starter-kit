@@ -6,9 +6,9 @@ import {
   globalRemoveSessionStorage as originalGlobalRemoveSessionStorage,
   globalSetSessionStorage as originalGlobalSetSessionStorage,
 } from "@/utils/globalSessionStorage";
-import { SessionStorage } from "@/utils/globalSessionStorage/type";
 
-interface TestSessionStorage extends SessionStorage {
+interface TestSessionStorage {
+  string: string;
   testDate: Date;
   testStringArray: string[];
   testNumberArray: number[];
@@ -34,7 +34,8 @@ type OverriddenGlobalSetSessionStorage = <K extends keyof TestSessionStorage>(
 
 const globalSetSessionStorage = originalGlobalSetSessionStorage as OverriddenGlobalSetSessionStorage;
 const globalGetSessionStorage = originalGlobalGetSessionStorage as OverriddenGlobalGetSessionStorage;
-const globalRemoveSessionStorage = originalGlobalRemoveSessionStorage as OverriddenGlobalRemoveSessionStorage;
+const globalRemoveSessionStorage =
+  originalGlobalRemoveSessionStorage as unknown as OverriddenGlobalRemoveSessionStorage;
 
 describe("sharedSessionStorage", () => {
   beforeEach(() => {
@@ -42,8 +43,8 @@ describe("sharedSessionStorage", () => {
   });
 
   test("should set string primitive value", () => {
-    globalSetSessionStorage("accessToken", "testToken");
-    const result = sessionStorage.getItem("accessToken");
+    globalSetSessionStorage("string", "testToken");
+    const result = sessionStorage.getItem("string");
     expect(result).toBe('"testToken"');
   });
 
@@ -117,14 +118,14 @@ describe("sharedSessionStorage", () => {
   });
 
   test("should remove value", () => {
-    sessionStorage.setItem("accessToken", "value");
-    globalRemoveSessionStorage("accessToken");
-    const result = sessionStorage.getItem("accessToken");
+    sessionStorage.setItem("string", "value");
+    globalRemoveSessionStorage("string");
+    const result = sessionStorage.getItem("string");
     expect(result).toBeNull();
   });
 
   test("should return null when querying non-existent key", () => {
-    const result = globalGetSessionStorage("nonExistentKey" as keyof SessionStorage);
+    const result = globalGetSessionStorage("nonExistentKey" as keyof TestSessionStorage);
     expect(result).toBeNull();
   });
 
