@@ -1,0 +1,14 @@
+{
+  "overrides": [
+    {
+      "excludedFiles": ["src/**/*.page.tsx", "**/*.stories.ts"],
+      "files": ["src/**/*.tsx", "src/**/*.ts"],
+      "rules": { "import/no-default-export": "error" }
+    },
+    {
+      "files": "src/**/*.page.tsx",
+      "rules": { "import/no-named-export": "error" }
+    }
+  ],
+  "plugins": ["import"]
+}

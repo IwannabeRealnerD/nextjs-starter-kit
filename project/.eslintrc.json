@@ -9,24 +9,15 @@
     "airbnb",
     "./lint-rules/boundary.json",
     "./lint-rules/naming-convention.json",
+    "./lint-rules/export.json",
     "prettier"
-  ],
-  "overrides": [
-    {
-      "excludedFiles": ["src/**/*.page.tsx", "**/*.stories.ts"],
-      "files": ["src/**/*.tsx", "src/**/*.ts"],
-      "rules": { "import/no-default-export": "error" }
-    },
-    {
-      "files": "src/**/*.page.tsx",
-      "rules": { "import/no-named-export": "error" }
-    }
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
   "rules": {
     "@cspell/spellchecker": ["error", { "ignoreImports": false }],
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "arrow-body-style": "off",
     "import/extensions": [

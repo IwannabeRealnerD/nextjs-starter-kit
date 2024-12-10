@@ -1,5 +1,6 @@
 import fs from "fs/promises";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 
 import fastGlob from "fast-glob";
 
@@ -7,7 +8,11 @@ interface createProjectArgs {
   isDescription: boolean;
   wantedFeatures: string[] | undefined;
   projectName: string;
+  routerType: "app" | "pages";
 }
+
+const __filename = fileURLToPath(import.meta.url); // 현재 파일 경로
+const __dirname = dirname(__filename); // 현재 디렉토리 경로
 
 export const createProject = async (arg: createProjectArgs) => {
   const sourceDir = path.join(__dirname, "./project");
@@ -60,6 +65,25 @@ export const createProject = async (arg: createProjectArgs) => {
     packageJson,
     (await fs.readFile(packageJson, "utf8")).replace(/("name":\s*")[^"]*(")/, `$1${arg.projectName}$2`)
   );
+
+  if (arg.routerType === "app") {
+    await fs.rm(path.join(targetDir, "src/pages"), { recursive: true });
+    await fs.rename(path.join(targetDir, "app-router-resources/app"), path.join(targetDir, "src/app"));
+    await fs.rm(path.join(targetDir, "lint-rules/export.json"), { recursive: true });
+    await fs.rename(
+      path.join(targetDir, "app-router-resources/export.json"),
+      path.join(targetDir, "lint-rules/export.json")
+    );
+    await fs.rm(path.join(targetDir, "next.config.js"));
+    await fs.rename(
+      path.join(targetDir, "app-router-resources/next.config.js"),
+      path.join(targetDir, "next.config.js")
+    );
+    await fs.rm(path.join(targetDir, "app-router-resources"), { recursive: true });
+  }
+  if (arg.routerType === "pages") {
+    await fs.rm(path.join(targetDir, "src/app-router-resources"), { recursive: true });
+  }
 
   return targetDir;
 };

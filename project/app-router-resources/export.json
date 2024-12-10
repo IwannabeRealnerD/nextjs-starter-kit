@@ -1,0 +1,25 @@
+{
+  "overrides": [
+    {
+      "excludedFiles": [
+        "src/app/**/page.tsx",
+        "src/app/**/layout.tsx",
+        "src/app/**/loading.tsx",
+        "src/app/**/not-found.tsx",
+        "src/app/**/error.tsx",
+        "src/app/**/global-error.tsx",
+        "src/app/**/route.tsx",
+        "src/app/**/template.tsx",
+        "src/app/**/default.tsx",
+        "**/*.stories.ts"
+      ],
+      "files": ["src/**/*.tsx", "src/**/*.ts"],
+      "rules": { "import/no-default-export": "error" }
+    },
+    {
+      "files": "src/**/page.tsx",
+      "rules": { "import/no-named-export": "error" }
+    }
+  ],
+  "plugins": ["import"]
+}

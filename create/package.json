@@ -11,6 +11,7 @@
     "test:util": "pnpm vitest run ./test/util",
     "lint": "pnpm eslint ."
   },
+  "type": "module",
   "dependencies": {
     "@vercel/ncc": "^0.38.1",
     "commander": "^12.1.0",
