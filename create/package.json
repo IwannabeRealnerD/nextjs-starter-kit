@@ -42,7 +42,7 @@
     "create-nextjs-starter-kit": "./bin/index.js"
   },
   "engines": {
-    "node": "22.12.0",
+    "node": "20.18.1",
     "pnpm": "9.15.0"
   },
   "author": "iwannaberealnerd",
