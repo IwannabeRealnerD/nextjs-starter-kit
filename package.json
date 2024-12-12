@@ -21,8 +21,8 @@
     "access": "public"
   },
   "engines": {
-    "node": "20",
-    "pnpm": "9"
+    "node": "20.18.1",
+    "pnpm": "9.15.0"
   },
   "scripts": {
     "create-app": "pnpm --filter create-nextjs-starter-kit",
@@ -31,7 +31,7 @@
     "lint:all": "turbo run lint"
   },
   "devDependencies": {
-    "turbo": "^2.1.2"
+    "turbo": "^2.3.3"
   },
-  "packageManager": "pnpm@9.15.0+sha256.09a8fe31a34fda706354680619f4002f4ccef6dadff93240d24ef6c831f0fd28"
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
 }
