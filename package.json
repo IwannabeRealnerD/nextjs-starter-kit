@@ -21,8 +21,8 @@
     "access": "public"
   },
   "engines": {
-    "node": "20",
-    "pnpm": "9"
+    "node": "22.12.0",
+    "pnpm": "9.15.0"
   },
   "scripts": {
     "create-app": "pnpm --filter create-nextjs-starter-kit",
