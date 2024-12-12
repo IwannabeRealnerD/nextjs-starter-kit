@@ -42,8 +42,8 @@
     "create-nextjs-starter-kit": "./bin/index.js"
   },
   "engines": {
-    "node": "20",
-    "pnpm": "9"
+    "node": "20.18.1",
+    "pnpm": "9.15.0"
   },
   "author": "iwannaberealnerd",
   "packageManager": "pnpm@9.15.0+sha256.09a8fe31a34fda706354680619f4002f4ccef6dadff93240d24ef6c831f0fd28"
