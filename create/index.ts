@@ -10,6 +10,7 @@ import { getIsDescription } from "@/utils/prompts/getIsDescription";
 import { getWantedFeature } from "@/utils/prompts/getWantedFeature";
 
 import packageJson from "./package.json";
+import { getRouterType } from "./utils/prompts/getRouterType";
 
 const main = async () => {
   const program = new Command(packageJson.name);
@@ -45,7 +46,8 @@ const main = async () => {
 
   const isDescription = await getIsDescription(program.opts().full, program.opts().minimal);
   const wantedFeatures = await getWantedFeature(program.opts().full, program.opts().minimal);
-  const userAnswers = Object.assign({}, projectName, isDescription, wantedFeatures);
+  const routerType = await getRouterType(program.opts().full, program.opts().minimal);
+  const userAnswers = Object.assign({}, projectName, isDescription, wantedFeatures, routerType);
 
   const projectLocation = await createProject(userAnswers);
 
