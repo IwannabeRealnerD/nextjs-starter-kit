@@ -1,11 +1,8 @@
-import { execSync } from "child_process";
 import fs from "fs/promises";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
 import fastGlob from "fast-glob";
-
-import { logWithColor } from "@/utils/logWithColor";
 
 interface createProjectArgs {
   isDescription: boolean;
