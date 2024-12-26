@@ -6,7 +6,7 @@
 
 ```bash
 pnpm global-link
-# At the directory where the project is to be created
+# At the directory where you want to create the project
 create-nextjs-starter-kit
 ```
 

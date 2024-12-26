@@ -1,8 +1,11 @@
+import { execSync } from "child_process";
 import fs from "fs/promises";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
 import fastGlob from "fast-glob";
+
+import { logWithColor } from "@/utils/logWithColor";
 
 interface createProjectArgs {
   isDescription: boolean;
@@ -11,18 +14,17 @@ interface createProjectArgs {
   routerType: "app" | "pages";
 }
 
-const __filename = fileURLToPath(import.meta.url); // 현재 파일 경로
-const __dirname = dirname(__filename); // 현재 디렉토리 경로
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-export const createProject = async (arg: createProjectArgs) => {
+export const createProject = async (projectSettings: createProjectArgs, targetDir: string) => {
   const sourceDir = path.join(__dirname, "./project");
-  const targetDir = path.resolve(arg.projectName);
-  const isStorybookWanted = arg.wantedFeatures?.includes("storybook");
-  const isGithubActionsWanted = arg.wantedFeatures?.includes("github actions");
-  const isTestCodeWanted = arg.wantedFeatures?.includes("test code");
+  const isStorybookWanted = projectSettings.wantedFeatures?.includes("storybook");
+  const isGithubActionsWanted = projectSettings.wantedFeatures?.includes("github actions");
+  const isTestCodeWanted = projectSettings.wantedFeatures?.includes("test code");
 
   const copyList = ["**", "!node_modules", "!turbo", "!tsconfig.tsbuildinfo", "!next-env.d.ts"];
-  if (!arg.isDescription) {
+  if (!projectSettings.isDescription) {
     copyList.push("!setting_description/**");
   }
 
@@ -63,10 +65,10 @@ export const createProject = async (arg: createProjectArgs) => {
   // write project name to package.json
   await fs.writeFile(
     packageJson,
-    (await fs.readFile(packageJson, "utf8")).replace(/("name":\s*")[^"]*(")/, `$1${arg.projectName}$2`)
+    (await fs.readFile(packageJson, "utf8")).replace(/("name":\s*")[^"]*(")/, `$1${projectSettings.projectName}$2`)
   );
 
-  if (arg.routerType === "app") {
+  if (projectSettings.routerType === "app") {
     await fs.rm(path.join(targetDir, "src/pages"), { recursive: true });
     await fs.rename(path.join(targetDir, "app-router-resources/app"), path.join(targetDir, "src/app"));
     await fs.rm(path.join(targetDir, "lint-rules/export.json"), { recursive: true });
@@ -81,7 +83,7 @@ export const createProject = async (arg: createProjectArgs) => {
     );
     await fs.rm(path.join(targetDir, "app-router-resources"), { recursive: true });
   }
-  if (arg.routerType === "pages") {
+  if (projectSettings.routerType === "pages") {
     await fs.rm(path.join(targetDir, "src/app-router-resources"), { recursive: true });
   }
 
