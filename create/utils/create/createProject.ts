@@ -83,6 +83,4 @@ export const createProject = async (projectSettings: createProjectArgs, targetDi
   if (projectSettings.routerType === "pages") {
     await fs.rm(path.join(targetDir, "src/app-router-resources"), { recursive: true });
   }
-
-  return targetDir;
 };
