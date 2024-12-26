@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from "vitest";
 
-import { getIsDescription } from "@/utils/prompts/getIsDescription";
+import { getIsDescription } from "@/utils/prompt/getIsDescription";
 
 describe("getWantedFeature()", () => {
   test("Return an wantedFeatures object with empty array if isFullFeature is false.", async () => {
