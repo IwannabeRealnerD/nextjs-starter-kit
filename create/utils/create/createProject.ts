@@ -1,11 +1,8 @@
-import { execSync } from "child_process";
 import fs from "fs/promises";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
 import fastGlob from "fast-glob";
-
-import { logWithColor } from "../logWithColor";
 
 interface createProjectArgs {
   isDescription: boolean;
@@ -85,17 +82,5 @@ export const createProject = async (projectSettings: createProjectArgs, targetDi
   }
   if (projectSettings.routerType === "pages") {
     await fs.rm(path.join(targetDir, "src/app-router-resources"), { recursive: true });
-  }
-
-  try {
-    execSync("git init", { cwd: targetDir });
-    execSync("git add .", { cwd: targetDir });
-    execSync('git commit -m "Initial commit"', {
-      cwd: targetDir,
-    });
-    logWithColor(`Git initialized successfully.`, "green");
-  } catch (error) {
-    logWithColor(`Error occurred while initializing git: ${error}`, "red");
-    logWithColor(`Please initialize git manually.`, "red");
   }
 };
