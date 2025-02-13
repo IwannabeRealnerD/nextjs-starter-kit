@@ -13,13 +13,45 @@
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@cspell", "sort-keys-fix", "unicorn"],
+  "plugins": [
+    "@cspell",
+    "sort-keys-fix",
+    "unicorn"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "src/**/*.tsx",
+        "src/**/*.ts"
+      ],
+      "excludedFiles": ["./src/utils/globalCn.ts"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "clsx",
+                "message": "Use globalCn instead of clsx."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "rules": {
-    "@cspell/spellchecker": ["error", { "ignoreImports": false }],
+    "@cspell/spellchecker": [
+      "error",
+      {
+        "ignoreImports": false
+      }
+    ],
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "arrow-body-style": "off",
+    "import/no-unresolved": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -39,7 +71,16 @@
           "order": "asc"
         },
         "distinctGroup": false,
-        "groups": ["builtin", "external", "internal", "parent", ["index", "sibling"]],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          [
+            "index",
+            "sibling"
+          ]
+        ],
         "newlines-between": "always",
         "pathGroups": [
           {
@@ -47,8 +88,16 @@
             "pattern": "react",
             "position": "before"
           },
-          { "group": "builtin", "pattern": "next", "position": "before" },
-          { "group": "builtin", "pattern": "next/**", "position": "before" }
+          {
+            "group": "builtin",
+            "pattern": "next",
+            "position": "before"
+          },
+          {
+            "group": "builtin",
+            "pattern": "next/**",
+            "position": "before"
+          }
         ],
         "pathGroupsExcludedImportTypes": []
       }
@@ -59,7 +108,9 @@
       {
         "paths": [
           {
-            "importNames": ["it"],
+            "importNames": [
+              "it"
+            ],
             "message": "Please use \"test\" instead of \"it\" from vitest.",
             "name": "vitest"
           }
@@ -82,7 +133,15 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".jsx",
+          ".tsx"
+        ]
+      }
+    ],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-sort-props": [
       "error",
@@ -98,7 +157,9 @@
     "react/no-unknown-property": [
       2,
       {
-        "ignore": ["jsx"]
+        "ignore": [
+          "jsx"
+        ]
       }
     ],
     "react/react-in-jsx-scope": "off",

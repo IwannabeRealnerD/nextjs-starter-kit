@@ -25,6 +25,22 @@
       "mode": "auto"
     }
   ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "cva\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "sharedCn\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "\\w*Style\\s*=\\s*\"([^\"]*?)\""
+    ],
+  ],
+  "files.associations": {
+    "app.css": "tailwindcss",
+  },
   "commentAnchors.tags.separators": [" - "],
   "commentAnchors.tags.anchors": {
     "ANCHOR": {
