@@ -23,12 +23,11 @@ import { typescriptRules } from "./lint/rules/typescript.js";
 const eslintConfig = [
   { ignores: [".vercel/", ".next/"] },
   eslint.configs.recommended,
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
   importPlugin.flatConfigs.recommended,
   {
     languageOptions: {
       parser: tseslint.parser,
+      sourceType: "module",
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -52,6 +51,7 @@ const eslintConfig = [
     },
     files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     plugins: {
+      "@typescript-eslint": tseslint.plugin,
       "@cspell": cspellPlugin,
       prettier: eslintPluginPrettier,
       "jsx-a11y": jsxA11y,
