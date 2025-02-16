@@ -1,5 +1,4 @@
 import cspellPlugin from "@cspell/eslint-plugin";
-import eslint from "@eslint/js";
 import nextPlugin from "@next/eslint-plugin-next";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
@@ -15,6 +14,7 @@ import { boundaryConfigs } from "./lint/configs/boundary.js";
 import { exportConfigs } from "./lint/configs/export.js";
 import { namingConventionConfigs } from "./lint/configs/naming-convetion.js";
 import { commitRules } from "./lint/rules/commit.js";
+import { eslintRules } from "./lint/rules/eslint.js";
 import { importRules } from "./lint/rules/import.js";
 import { nextRules } from "./lint/rules/next.js";
 import { reactRules } from "./lint/rules/react.js";
@@ -22,8 +22,6 @@ import { typescriptRules } from "./lint/rules/typescript.js";
 
 const eslintConfig = [
   { ignores: [".vercel/", ".next/"] },
-  eslint.configs.recommended,
-  importPlugin.flatConfigs.recommended,
   {
     languageOptions: {
       parser: tseslint.parser,
@@ -51,6 +49,7 @@ const eslintConfig = [
     },
     files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     plugins: {
+      import: importPlugin,
       "@typescript-eslint": tseslint.plugin,
       "@cspell": cspellPlugin,
       prettier: eslintPluginPrettier,
@@ -61,9 +60,7 @@ const eslintConfig = [
       unicorn: unicornPlugin,
     },
     rules: {
-      "no-unused-vars": "off",
       "prettier/prettier": ["error"],
-      "arrow-body-style": "off",
       "unicorn/no-empty-file": "error",
       "@cspell/spellchecker": [
         "error",
@@ -78,6 +75,7 @@ const eslintConfig = [
       ...importRules,
       ...reactRules,
       ...nextRules,
+      ...eslintRules,
     },
   },
   ...boundaryConfigs,

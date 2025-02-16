@@ -49,4 +49,11 @@ export const importRules = {
       ],
     },
   ],
+  // NOTE - These rules are pasted from eslint-plugin-import/recommended
+  "import/no-unresolved": "error",
+  "import/named": "error",
+  "import/namespace": "error",
+  "import/default": "error",
+  "import/export": "error",
+  "import/no-duplicates": "error",
 };
