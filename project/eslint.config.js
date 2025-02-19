@@ -60,7 +60,7 @@ const eslintConfig = [
       unicorn: unicornPlugin,
     },
     rules: {
-      "prettier/prettier": ["error"],
+      ...(process.env.IS_COMMIT_CHECK ? {} : { "prettier/prettier": "error" }),
       "unicorn/no-empty-file": "error",
       "@cspell/spellchecker": [
         "error",
@@ -76,12 +76,12 @@ const eslintConfig = [
       ...reactRules,
       ...nextRules,
       ...eslintRules,
+      ...eslintConfigPrettier.rules,
     },
   },
   ...boundaryConfigs,
   ...namingConventionConfigs,
   ...exportConfigs,
-  eslintConfigPrettier,
 ];
 
 export default eslintConfig;

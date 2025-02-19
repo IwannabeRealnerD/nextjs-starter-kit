@@ -17,6 +17,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "IS_COMMIT_CHECK=true eslint . --cache",
+    "lint:analyze": "TIMING=1 IS_COMMIT_CHECK=true eslint .",
+    "lint:inspect": "pnpm dlx @eslint/config-inspector@latest",
     "test": "vitest run",
     "test:watch": "vitest",
     "start": "next start",

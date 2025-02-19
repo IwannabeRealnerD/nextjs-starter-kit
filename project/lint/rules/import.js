@@ -1,4 +1,8 @@
+import importPlugin from "eslint-plugin-import";
+
 export const importRules = {
+  ...importPlugin.flatConfigs.recommended.rules,
+  "import/no-duplicates": "error",
   "import/no-empty-named-blocks": "error",
   "import/no-named-as-default": "error",
   "import/no-named-as-default-member": "error",
@@ -49,11 +53,4 @@ export const importRules = {
       ],
     },
   ],
-  // NOTE - These rules are pasted from eslint-plugin-import/recommended
-  "import/no-unresolved": "error",
-  "import/named": "error",
-  "import/namespace": "error",
-  "import/default": "error",
-  "import/export": "error",
-  "import/no-duplicates": "error",
 };
