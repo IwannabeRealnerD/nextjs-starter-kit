@@ -8,7 +8,6 @@ interface createProjectArgs {
   isDescription: boolean;
   wantedFeatures: string[] | undefined;
   projectName: string;
-  routerType: "app" | "pages";
 }
 
 const __filename = fileURLToPath(import.meta.url);
@@ -64,23 +63,4 @@ export const createProject = async (projectSettings: createProjectArgs, targetDi
     packageJson,
     (await fs.readFile(packageJson, "utf8")).replace(/("name":\s*")[^"]*(")/, `$1${projectSettings.projectName}$2`)
   );
-
-  if (projectSettings.routerType === "app") {
-    await fs.rm(path.join(targetDir, "src/pages"), { recursive: true });
-    await fs.rename(path.join(targetDir, "app-router-resources/app"), path.join(targetDir, "src/app"));
-    await fs.rm(path.join(targetDir, "lint-rules/export.json"), { recursive: true });
-    await fs.rename(
-      path.join(targetDir, "app-router-resources/export.json"),
-      path.join(targetDir, "lint-rules/export.json")
-    );
-    await fs.rm(path.join(targetDir, "next.config.js"));
-    await fs.rename(
-      path.join(targetDir, "app-router-resources/next.config.js"),
-      path.join(targetDir, "next.config.js")
-    );
-    await fs.rm(path.join(targetDir, "app-router-resources"), { recursive: true });
-  }
-  if (projectSettings.routerType === "pages") {
-    await fs.rm(path.join(targetDir, "src/app-router-resources"), { recursive: true });
-  }
 };

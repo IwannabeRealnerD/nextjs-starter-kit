@@ -5,7 +5,6 @@ import { Command } from "commander";
 import prompts from "prompts";
 
 import { getIsDescription } from "./getIsDescription";
-import { getRouterType } from "./getRouterType";
 import { getWantedFeature } from "./getWantedFeature";
 import packageJson from "../../package.json";
 import { logWithColor } from "../logWithColor";
@@ -44,8 +43,7 @@ export const getUserOptions = async () => {
 
   const isDescription = await getIsDescription(program.opts().full, program.opts().minimal);
   const wantedFeatures = await getWantedFeature(program.opts().full, program.opts().minimal);
-  const routerType = await getRouterType(program.opts().full, program.opts().minimal);
-  const userAnswers = Object.assign({}, projectName, isDescription, wantedFeatures, routerType);
+  const userAnswers = Object.assign({}, projectName, isDescription, wantedFeatures);
 
   return userAnswers;
 };
