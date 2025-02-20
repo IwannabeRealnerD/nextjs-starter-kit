@@ -6,8 +6,7 @@ import { describe, test, expect, beforeAll } from "vitest";
 
 const projectDir = path.join(__dirname, "../../bin/project");
 const projectFiles = [
-  ".eslintignore",
-  ".eslintrc.json",
+  "eslint.config.js",
   ".gitignore",
   ".nvmrc",
   ".prettierrc.json",
