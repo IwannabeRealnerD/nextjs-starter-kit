@@ -1,12 +1,19 @@
 /** @type {import("eslint").Linter.Config[]} */
 export const exportConfigs = [
   {
-    files: ["src/**/*.page.tsx"],
-    rules: { "import/no-named-export": "error" },
-  },
-  {
     files: ["src/**/*.tsx", "src/**/*.ts"],
-    ignores: ["**/*.stories.ts", "src/**/*.page.tsx"],
+    ignores: [
+      "src/app/**/page.tsx",
+      "src/app/**/layout.tsx",
+      "src/app/**/loading.tsx",
+      "src/app/**/not-found.tsx",
+      "src/app/**/error.tsx",
+      "src/app/**/global-error.tsx",
+      "src/app/**/route.tsx",
+      "src/app/**/template.tsx",
+      "src/app/**/default.tsx",
+      "**/*.stories.ts",
+    ],
     rules: { "import/no-default-export": "error" },
   },
 ];

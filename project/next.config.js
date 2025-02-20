@@ -7,10 +7,16 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  pageExtensions: ["page.tsx", "page.ts"],
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: "raw-loader",
+    });
+    return config;
   },
 };
 
