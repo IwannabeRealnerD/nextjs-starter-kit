@@ -4,7 +4,7 @@
   "description": "Create Next.js project with strong lint rules and useful tools",
   "scripts": {
     "dev": "pnpm build && node ./bin/index.js",
-    "copy": "mkdir -p ./bin/project && rsync -avh --exclude 'node_modules' --exclude '.next' --exclude '.turbo' --exclude '.DS_Store' --exclude 'next.env.d.ts' --exclude 'tsconfig.tsbuildinfo' ../project/ ./bin/project",
+    "copy": "rm -rf ./bin/project && mkdir -p ./bin/project && rsync -avh --exclude 'node_modules' --exclude '.next' --exclude '.turbo' --exclude '.DS_Store' --exclude 'next.env.d.ts' --exclude 'tsconfig.tsbuildinfo' ../project/ ./bin/project",
     "build": "pnpm copy && pnpm ncc build ./index.ts -o ./bin/ -C -m --no-source-map-register",
     "test": "pnpm vitest run",
     "global-link": "pnpm build && pnpm link --global",
@@ -45,6 +45,5 @@
     "node": "22",
     "pnpm": "10"
   },
-  "author": "iwannaberealnerd",
-  "packageManager": "pnpm@10.2.0+sha512.0d27364e0139c6aadeed65ada153135e0ca96c8da42123bd50047f961339dc7a758fc2e944b428f52be570d1bd3372455c1c65fa2e7aa0bfbf931190f9552001"
+  "author": "iwannaberealnerd"
 }
