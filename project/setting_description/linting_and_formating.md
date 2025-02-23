@@ -136,7 +136,7 @@ pnpm add -D eslint-config-prettier eslint-plugin-prettier
 - However, developers who are accustomed to lint fixing and formatting on save can enable this behavior using the following configuration:
 
 
-```json
+```jsonc
     // ...omitted
     "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -161,7 +161,7 @@ pnpm add -D prettier-plugin-sort-json
 
 - By default, `prettier-plugin-sort-json` will sort only top-level keys. Setting `jsonRecursiveSort` to true will sort all keys at all levels.
 
-```json
+```jsonc
 // .prettierrc.json
 {
   "jsonRecursiveSort": true,
@@ -200,7 +200,7 @@ pnpm add -D @cspell/eslint-plugin
 
 - In `cspell.json`, add the following configuration to customize the spell checker. For example, The word "motorrad" is added because it's a correct word for this project but cspell does not recognize it.
 
-```json
+```jsonc
 //cspell.json
 {
   "language": "en",
@@ -215,7 +215,7 @@ pnpm add -D @cspell/eslint-plugin
 
 - In order to use ESLint as a formatter in VS Code, The following code is added to the `.vscode/settings.json` file.
 
-```json
+```jsonc
 //.vscode/settings.json
 {
   "[javascript]": {
