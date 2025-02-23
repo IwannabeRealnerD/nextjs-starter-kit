@@ -10,7 +10,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss": "^4.0.6"
+    "tailwindcss": "^4.0.6",
+    "vitest": "^3.0.6"
   },
   "scripts": {
     "analyze": "ANALYZE=true pnpm build",
@@ -59,15 +60,14 @@
     "eslint-plugin-unicorn": "^54.0.0",
     "globals": "^15.15.0",
     "husky": "^8.0.0",
-    "jsdom": "^24.1.0",
+    "jsdom": "^26.0.0",
     "lint-staged": "^15.2.7",
     "prettier-plugin-sort-json": "^4.0.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "storybook": "^8.5.5",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.24.0",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.6.0"
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "engines": {
     "node": "22",
@@ -75,8 +75,15 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "lint",
+      "pnpm lint",
       "bash -c tsc --noEmit --pretty"
+    ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "core-js-pure",
+      "esbuild",
+      "sharp"
     ]
   },
   "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
