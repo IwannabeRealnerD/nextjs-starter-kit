@@ -1,5 +1,6 @@
 import cspellPlugin from "@cspell/eslint-plugin";
 import nextPlugin from "@next/eslint-plugin-next";
+import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
@@ -21,7 +22,7 @@ import { nextRules } from "./lint/rules/next.js";
 import { reactRules } from "./lint/rules/react.js";
 import { typescriptRules } from "./lint/rules/typescript.js";
 
-const eslintConfig = [
+const eslintConfig = defineConfig([
   { ignores: [".vercel/", ".next/"] },
   {
     languageOptions: {
@@ -84,6 +85,6 @@ const eslintConfig = [
   ...namingConventionConfigs,
   ...exportConfigs,
   ...onlyGlobalCn,
-];
+]);
 
 export default eslintConfig;
