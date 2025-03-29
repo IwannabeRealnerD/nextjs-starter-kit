@@ -13,6 +13,7 @@ import tseslint from "typescript-eslint";
 import { boundaryConfigs } from "./lint/configs/boundary.js";
 import { exportConfigs } from "./lint/configs/export.js";
 import { namingConventionConfigs } from "./lint/configs/naming-convetion.js";
+import { onlyGlobalCn } from "./lint/configs/only-globalCn.js";
 import { commitRules } from "./lint/rules/commit.js";
 import { eslintRules } from "./lint/rules/eslint.js";
 import { importRules } from "./lint/rules/import.js";
@@ -82,6 +83,7 @@ const eslintConfig = [
   ...boundaryConfigs,
   ...namingConventionConfigs,
   ...exportConfigs,
+  ...onlyGlobalCn,
 ];
 
 export default eslintConfig;
