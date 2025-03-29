@@ -1,5 +1,7 @@
+import { defineConfig } from "eslint/config";
+
 /** @type {import("eslint").Linter.Config[]} */
-export const exportConfigs = [
+export const exportConfigs = defineConfig([
   {
     files: ["src/**/*.tsx", "src/**/*.ts"],
     ignores: [
@@ -16,4 +18,4 @@ export const exportConfigs = [
     ],
     rules: { "import/no-default-export": "error" },
   },
-];
+]);

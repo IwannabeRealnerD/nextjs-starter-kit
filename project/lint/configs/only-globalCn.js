@@ -1,4 +1,6 @@
-export const onlyGlobalCn = [
+import { defineConfig } from "eslint/config";
+
+export const onlyGlobalCn = defineConfig([
   {
     ignores: ["src/utils/globalCn.ts"],
     rules: {
@@ -19,4 +21,4 @@ export const onlyGlobalCn = [
       ],
     },
   },
-];
+]);

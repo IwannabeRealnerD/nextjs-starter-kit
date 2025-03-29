@@ -1,7 +1,8 @@
+import { defineConfig } from "eslint/config";
 import boundariesPlugin from "eslint-plugin-boundaries";
 
 /** @type {import("eslint").Linter.Config[]} */
-export const boundaryConfigs = [
+export const boundaryConfigs = defineConfig([
   {
     files: ["src/**/*.{ts,tsx}"],
     plugins: { boundaries: boundariesPlugin },
@@ -41,4 +42,4 @@ export const boundaryConfigs = [
       ],
     },
   },
-];
+]);

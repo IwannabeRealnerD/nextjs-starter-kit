@@ -1,7 +1,8 @@
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 /** @type {import("eslint").Linter.Config[]} */
-export const namingConventionConfigs = [
+export const namingConventionConfigs = defineConfig([
   {
     files: ["src/constants/**/*.{ts,tsx}"],
     plugins: { "@typescript-eslint": tseslint.plugin },
@@ -123,4 +124,4 @@ export const namingConventionConfigs = [
       ],
     },
   },
-];
+]);
