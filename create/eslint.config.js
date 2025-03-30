@@ -1,4 +1,5 @@
 import cspellPlugin from "@cspell/eslint-plugin";
+import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import eslintPluginPrettier from "eslint-plugin-prettier";
@@ -6,7 +7,10 @@ import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-const eslintConfig = [
+const eslintConfig = defineConfig([
+  {
+    ignores: ["bin/**/*"],
+  },
   {
     languageOptions: {
       parser: tseslint.parser,
@@ -101,6 +105,6 @@ const eslintConfig = [
       ...eslintConfigPrettier.rules,
     },
   },
-];
+]);
 
 export default eslintConfig;

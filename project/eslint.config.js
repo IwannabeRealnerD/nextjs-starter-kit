@@ -1,5 +1,6 @@
 import cspellPlugin from "@cspell/eslint-plugin";
 import nextPlugin from "@next/eslint-plugin-next";
+import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
@@ -13,6 +14,7 @@ import tseslint from "typescript-eslint";
 import { boundaryConfigs } from "./lint/configs/boundary.js";
 import { exportConfigs } from "./lint/configs/export.js";
 import { namingConventionConfigs } from "./lint/configs/naming-convetion.js";
+import { onlyGlobalCn } from "./lint/configs/only-globalCn.js";
 import { commitRules } from "./lint/rules/commit.js";
 import { eslintRules } from "./lint/rules/eslint.js";
 import { importRules } from "./lint/rules/import.js";
@@ -20,7 +22,7 @@ import { nextRules } from "./lint/rules/next.js";
 import { reactRules } from "./lint/rules/react.js";
 import { typescriptRules } from "./lint/rules/typescript.js";
 
-const eslintConfig = [
+const eslintConfig = defineConfig([
   { ignores: [".vercel/", ".next/"] },
   {
     languageOptions: {
@@ -77,11 +79,13 @@ const eslintConfig = [
       ...nextRules,
       ...eslintRules,
       ...eslintConfigPrettier.rules,
+      curly: "error",
     },
   },
   ...boundaryConfigs,
   ...namingConventionConfigs,
   ...exportConfigs,
-];
+  ...onlyGlobalCn,
+]);
 
 export default eslintConfig;
