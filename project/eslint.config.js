@@ -62,7 +62,6 @@ const eslintConfig = defineConfig([
       unicorn: unicornPlugin,
     },
     rules: {
-      ...(process.env.IS_COMMIT_CHECK ? {} : { "prettier/prettier": "error" }),
       "unicorn/no-empty-file": "error",
       "@cspell/spellchecker": [
         "error",
@@ -72,7 +71,6 @@ const eslintConfig = defineConfig([
           configFile: new URL("./cspell.json", import.meta.url).toString(),
         },
       ],
-      ...(process.env.IS_COMMIT_CHECK ? commitRules : []),
       ...typescriptRules,
       ...importRules,
       ...reactRules,
@@ -80,6 +78,8 @@ const eslintConfig = defineConfig([
       ...eslintRules,
       ...eslintConfigPrettier.rules,
       curly: "error",
+      ...(process.env.IS_COMMIT_CHECK ? {} : { "prettier/prettier": "error" }),
+      ...(process.env.IS_COMMIT_CHECK ? commitRules : []),
     },
   },
   ...boundaryConfigs,
