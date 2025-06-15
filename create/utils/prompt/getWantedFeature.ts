@@ -6,13 +6,12 @@ export const getWantedFeature = async (isFull?: boolean, isMinimum?: boolean): P
   }
   if (isMinimum) {
     return {
-      wantedFeatures: ["storybook", "github actions", "test code"],
+      wantedFeatures: ["github actions", "test code"],
     };
   }
 
   const wantedFeatures = await prompts({
     choices: [
-      { title: "storybook", value: "storybook" },
       {
         title: "essential github actions",
         value: "github actions",

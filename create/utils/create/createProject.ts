@@ -15,17 +15,12 @@ const __dirname = dirname(__filename);
 
 export const createProject = async (projectSettings: createProjectArgs, targetDir: string) => {
   const sourceDir = path.join(__dirname, "./project");
-  const isStorybookWanted = projectSettings.wantedFeatures?.includes("storybook");
   const isGithubActionsWanted = projectSettings.wantedFeatures?.includes("github actions");
   const isTestCodeWanted = projectSettings.wantedFeatures?.includes("test code");
 
   const copyList = ["**", "!node_modules", "!turbo", "!tsconfig.tsbuildinfo", "!next-env.d.ts"];
   if (!projectSettings.isDescription) {
     copyList.push("!setting_description/**");
-  }
-
-  if (!isStorybookWanted) {
-    copyList.push("!.storybook/**", "!src/stories/**");
   }
 
   if (!isGithubActionsWanted) {
@@ -51,16 +46,14 @@ export const createProject = async (projectSettings: createProjectArgs, targetDi
     })
   );
 
-  const packageJson = path.join(targetDir, "package.json");
-
-  if (!isStorybookWanted) {
-    const noStorybookPackageJson = (await fs.readFile(packageJson, "utf8")).replace(/.*storybook.*\n/g, "");
-    await fs.writeFile(packageJson, noStorybookPackageJson);
-  }
+  const packageJsonFileName = path.join(targetDir, "package.json");
 
   // write project name to package.json
   await fs.writeFile(
-    packageJson,
-    (await fs.readFile(packageJson, "utf8")).replace(/("name":\s*")[^"]*(")/, `$1${projectSettings.projectName}$2`)
+    packageJsonFileName,
+    (await fs.readFile(packageJsonFileName, "utf8")).replace(
+      /("name":\s*")[^"]*(")/,
+      `$1${projectSettings.projectName}$2`
+    )
   );
 };
