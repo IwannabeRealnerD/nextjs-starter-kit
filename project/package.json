@@ -45,6 +45,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^54.0.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^15.15.0",
     "husky": "^8.0.0",
     "jsdom": "^26.0.0",
