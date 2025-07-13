@@ -50,7 +50,7 @@ const eslintConfig = defineConfig([
         version: "detect",
       },
     },
-    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json", "**/*.jsonc"],
     plugins: {
       import: importPlugin,
       "@typescript-eslint": tseslint.plugin,
