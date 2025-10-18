@@ -1,5 +1,13 @@
 {
   "language": "en",
   "version": "0.1",
-  "words": ["tseslint", "tailwindStylesheet", "dbaeumer", "exodiusstudios", "bradlc"]
+  "words": [
+    "tseslint",
+    "tailwindStylesheet",
+    "dbaeumer",
+    "exodiusstudios",
+    "bradlc",
+    "polyfillio",
+    "proptypes"
+  ]
 }
