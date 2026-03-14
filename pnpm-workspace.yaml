@@ -1,4 +1,7 @@
 packages:
-  - "create"
-  - "project"
-  - "!**/test/**"
+  - create
+  - project
+  - '!**/test/**'
+
+ignoredBuiltDependencies:
+  - sharp

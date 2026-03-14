@@ -12,6 +12,7 @@ const eslintConfig = defineConfig([
     ignores: ["bin/**/*"],
   },
   {
+    files: ["**/*.ts", "**/*.js", "**/*.json", "**/*.jsonc"],
     languageOptions: {
       parser: tseslint.parser,
       sourceType: "module",
@@ -28,7 +29,7 @@ const eslintConfig = defineConfig([
     },
   },
   {
-    files: ["**/*.ts", "**/*.js"],
+    files: ["**/*.ts", "**/*.js", "**/*.json", "**/*.jsonc"],
     plugins: {
       import: importPlugin,
       import: importPlugin,
