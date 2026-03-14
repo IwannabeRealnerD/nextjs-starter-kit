@@ -1,0 +1,7 @@
+packages:
+  - create
+  - project
+  - '!**/test/**'
+
+ignoredBuiltDependencies:
+  - sharp

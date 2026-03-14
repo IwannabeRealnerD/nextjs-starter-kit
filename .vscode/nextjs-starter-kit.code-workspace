@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "name": "create",
+      "path": "../create"
+    },
+    {
+      "name": "project",
+      "path": "../project"
+    },
+    {
+      "name": "root",
+      "path": ".."
+    }
+  ],
+}
